@@ -3,17 +3,19 @@
     --template-column: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
 }
 
+
 html{
     font-family: calibri, monospace;
 }
 
-/*Header*/
 div.reg{
     display: grid;
     grid-template-columns: var(--template-column);
-    grid-template-rows: repeat(50, 20px);
+    grid-template-rows: repeat(48, 20px);
+    margin: ;
 }
 
+/*Header*/
 div.header{
     grid-area: 1 / 1 / 5 / 7;
     display: grid;
@@ -145,3 +147,16 @@ div.signature{
 div.signature > div.monitor{
     padding-left: 5px;
 }
+
+
+
+@media print {
+
+     div.reg{
+      height:100%; 
+      margin: 40px 35px !important; 
+      padding: 0 !important;
+      overflow: hidden;
+    }
+  
+  }
