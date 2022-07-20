@@ -64,3 +64,25 @@ div > img#logouaa{
 }
 
 /*Header*/
+
+div.dateTime{
+    grid-area: 5 / 1 / 10 / 7;
+    font-size: 15px;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
+    grid-template-rows: repeat(5, 20px);
+}
+
+div.dateTime > div.date{
+    grid-area: 3 / 1 / 4 / 3;
+    padding-left: 5px;
+}
+
+div.dateTime > div.timeS{
+    grid-area: 3 / 5 / 4 / 7;
+}
+
+div.dateTime > div.timeF{
+    grid-area: 4 / 5 / 5 / 7;
+}
