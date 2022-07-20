@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-family: calibri, monospace;
+        }
+
+        div.reg{
+            display: grid;
+            grid-template-columns: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
+            grid-template-rows: repeat(50, 20px);
+        }
+
+        div.header{
+            grid-area: 1 / 1 / 5 / 7;
+            display: grid;
+            grid-template-columns: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
+            grid-template-rows: repeat(4, 20px);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        div.header > div.part1{
+            grid-area: 1 / 1 / 5 / 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+            border: 1px solid black;
+        }
+
+        div.header > div.part2{
+            grid-area: 1 / 3 / 4 / 6;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            padding-top: 3px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        div.header > div.part3{
+            grid-area: 4 / 3 / 5 / 6;
+            text-align: center;
+            padding-top: 4px;
+            border-bottom: 1px solid black;
+        }
+
+        div.header > div.part4{
+            grid-area: 1 / 6 / 5 / 7;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 3px;
+            padding-left: 6px;
+            border: 1px solid black;
+        }
+
+        div > img#logoenercopimg{
+            width: 2.15cm;
+            height: 1.2cm;
+        }
+        
+        div > img#logouaa{
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reg">
+        <div class="header">
+            <div class="part1">
+                <div class="logoenercop"><img id="logoenercopimg" src="./img/logoenercop.jpg"></div>
+                <div>POLLOS ENERCOP</div>
+                <div>Planta Procesadora de Aves</div>
+            </div>
+            <div class="part2">
+                <div>ESTABLECIMIENTO OFICIAL N° 1612</div>
+                <div>Unión Agrícola de Avellaneda</div>
+                <div><img src="./img/logouaa.jpg" alt="Logo uaa" id="logouaa"></div>
+            </div>
+            <div class="part3">Determinación de Absorción de Agua</div>
+            <div class="part4">
+                <div>RH-HIDRA-006</div>
+                <div>Vigencia: 01/10/21</div>
+                <div>Revisión: 04</div>
+                <div>Página 1 de 1</div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
