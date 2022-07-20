@@ -86,3 +86,8 @@ div.dateTime > div.timeS{
 div.dateTime > div.timeF{
     grid-area: 4 / 5 / 5 / 7;
 }
+
+table{
+    grid-area: 10 / 1 / 36 / 7;
+    border: 1px solid red;
+}
