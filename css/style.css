@@ -1,7 +1,7 @@
 html{
     font-family: calibri, monospace;
 }
-
+/*Header*/
 div.reg{
     display: grid;
     grid-template-columns: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
@@ -62,3 +62,5 @@ div > img#logoenercopimg{
 div > img#logouaa{
     margin-top: 3px;
 }
+
+/*Header*/
