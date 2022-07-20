@@ -108,15 +108,33 @@ div.pro-hidra{
 
 div.pro-hidra > div.pro-text{
     border-right: var(--border);
+    padding-bottom: 4px;
+    font-size: 16px;
 }
 
 div.pro-hidra > div.pro-result{
-    padding-top: 10px;
+    padding: 8px;
+    font-size: 18px;
 }
 
 div.pro-hidra > div.pro-text,
 div.pro-hidra > div.pro-result{
     width: 103px;
     text-align: center;
-    font-size: 17px;
+}
+
+div.text-area{
+    grid-area: 40 / 1 / 44 / 7;
+}
+
+div.text-area > textarea#medidasCorrectivas{
+    resize: none;
+    width: 642px;
+    height: 75px;
+    font-weight: bold;
+    border: var(--border);
+}
+
+div.signature{
+    grid-area: 47 / 1 / 48 / 7;
 }
