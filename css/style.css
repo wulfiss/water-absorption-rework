@@ -91,3 +91,14 @@ table{
     grid-area: 10 / 1 / 36 / 7;
     border: 1px solid red;
 }
+
+div.pro-hidra{
+    grid-area: 37 / 3 / 39 / 5;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+}
+
+div.pro-hidra > div.pro-text{
+    width: 103px;
+}
