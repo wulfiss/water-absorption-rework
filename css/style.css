@@ -6,13 +6,17 @@
 
 html{
     font-family: calibri, monospace;
+    background-color: gray;
 }
 
 div.reg{
     display: grid;
     grid-template-columns: var(--template-column);
     grid-template-rows: repeat(48, 20px);
-    margin: ;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
 }
 
 /*Header*/
