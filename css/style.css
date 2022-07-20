@@ -137,4 +137,11 @@ div.text-area > textarea#medidasCorrectivas{
 
 div.signature{
     grid-area: 47 / 1 / 48 / 7;
+    display: flex;
+    flex-direction: row;
+    gap: 160px;
+}
+
+div.signature > div.monitor{
+    padding-left: 5px;
 }
