@@ -1,17 +1,23 @@
+:root{
+    --border: 1px solid black;
+    --template-column: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
+}
+
 html{
     font-family: calibri, monospace;
 }
+
 /*Header*/
 div.reg{
     display: grid;
-    grid-template-columns: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
+    grid-template-columns: var(--template-column);
     grid-template-rows: repeat(50, 20px);
 }
 
 div.header{
     grid-area: 1 / 1 / 5 / 7;
     display: grid;
-    grid-template-columns: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
+    grid-template-columns: var(--template-column);
     grid-template-rows: repeat(4, 20px);
     font-size: 12px;
     font-weight: bold;
@@ -23,7 +29,7 @@ div.header > div.part1{
     flex-direction: column;
     justify-content: end;
     align-items: center;
-    border: 1px solid black;
+    border: var(--border);
 }
 
 div.header > div.part2{
@@ -33,15 +39,15 @@ div.header > div.part2{
     justify-content: start;
     align-items: center;
     padding-top: 3px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: var(--border);
+    border-bottom: var(--border);
 }
 
 div.header > div.part3{
     grid-area: 4 / 3 / 5 / 6;
     text-align: center;
     padding-top: 4px;
-    border-bottom: 1px solid black;
+    border-bottom: var(--border);
 }
 
 div.header > div.part4{
@@ -51,7 +57,7 @@ div.header > div.part4{
     gap: 5px;
     padding-top: 3px;
     padding-left: 6px;
-    border: 1px solid black;
+    border: var(--border);
 }
 
 div > img#logoenercopimg{
@@ -70,7 +76,7 @@ div.dateTime{
     font-size: 15px;
     font-weight: bold;
     display: grid;
-    grid-template-columns: repeat(2, 86px) repeat(2, 103px) repeat(2, 135px);
+    grid-template-columns: var(--template-column);
     grid-template-rows: repeat(5, 20px);
 }
 
@@ -89,7 +95,7 @@ div.dateTime > div.timeF{
 
 table{
     grid-area: 10 / 1 / 36 / 7;
-    border: 1px solid red;
+    border: var(--border);
 }
 
 div.pro-hidra{
@@ -97,8 +103,20 @@ div.pro-hidra{
     display: flex;
     flex-direction: row;
     font-weight: bold;
+    border: var(--border);
 }
 
 div.pro-hidra > div.pro-text{
+    border-right: var(--border);
+}
+
+div.pro-hidra > div.pro-result{
+    padding-top: 10px;
+}
+
+div.pro-hidra > div.pro-text,
+div.pro-hidra > div.pro-result{
     width: 103px;
+    text-align: center;
+    font-size: 17px;
 }
