@@ -8,7 +8,30 @@ html{
     font-family: calibri, monospace;
     background-color: gray;
 }
+/*---------form------------*/
 
+div.form{
+    background-color: rgb(68, 146, 209);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form#data-chicken{
+    background-color: rgba(0, 0, 0, 0.247);
+    color:white;
+    width: calc(100vw * (9/16));;
+    height: 70vh;
+    padding: 40px;
+}
+h2{
+}
+/*---------form------------*/
+
+/*--------registry--------*/
 div.reg{
     display: none;
     grid-template-columns: var(--template-column);
@@ -176,4 +199,6 @@ div.signature > div.monitor{
       overflow: hidden;
     }
   
-  }
+}
+
+/*--------registry--------*/
