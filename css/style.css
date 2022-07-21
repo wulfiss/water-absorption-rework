@@ -10,7 +10,7 @@ html{
 }
 
 div.reg{
-    display: grid;
+    display: none;
     grid-template-columns: var(--template-column);
     grid-template-rows: repeat(48, 20px);
     background-color: white;
@@ -103,7 +103,7 @@ div.dateTime > div.timeF{
 table{
     grid-area: 9 / 1 / 35 / 7;
     border: var(--border);
-    font-size: 14px;
+    font-size: 15px;
     border-collapse: collapse;
 }
 

@@ -10,10 +10,43 @@
     <script src="./JS/rework.js" defer></script>
 </head>
 <body>
+    
+    <div class="form">
+        <h2>Generador de registro de Hidratación</h2>
+        <form id="data-chicken">
+            <p>
+                <h4>Fecha y Hora</h4>
+                <label for="date-test">Fecha:</label>
+                <input type="date" id="date-test"/>
+                <label for="hour-test">Hora de inicio:</label>
+                <input type="time" id="hour-test"/>
+
+                <h4>Peso promedio de pollos faenados</h4>
+                <label for="average-chicken-weight">Peso promedio de los pollos: </label>
+                <input type="number" id="average-chicken-weight" value= 2.500 placeholder="Ej: 2.500"/><br>
+                                                                
+                <fieldset>
+                    <legend>Rango de porcentaje final de Hidratación</legend>
+                    <input type="radio" name="water-max" id="Senasa" value="8">
+                    <label for="Senasa">Absorción max exigida por SENASA (8%)</label><br>
+                    <input type="radio" name="water-max" id="UE" value="4.5" checked>
+                    <label for="UE">Absorción max exigida por Union Europea (4.5%)</label><br>
+                    <input type="radio" name="water-max" id="other" value= "" disabled>
+                    <label for="other" disabled>Otro</label>
+                </fieldset>
+
+                <input type="checkbox" name="sealLost" id="seal-lost">
+                <label for="seal-lost">Check para agregar precintos perdidos</label>
+
+                <h4>Observaciones o medidas correctivas</h4>
+                <textarea id="observacionForm" placeholder="Observaciones"></textarea>
+            </p>
+            <button type="button" id="show-table">Show</button>
+        </form>
+    </div>
+
     <div class="reg">
-
         <div class="header">
-
             <div class="part1">
                 <div class="logoenercop"><img id="logoenercopimg" src="./img/logoenercop.jpg"></div>
                 <div>POLLOS ENERCOP</div>
@@ -69,6 +102,6 @@
             <div class="monitor">Responsable de monitoreo:</div>
             <div class="jefa">Responsable de verificación:</div>
         </div>
-    </div>
+    </div>    
 </body>
 </html>
