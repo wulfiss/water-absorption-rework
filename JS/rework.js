@@ -74,10 +74,17 @@ function date(){
     dateReg.textContent = `Fecha: ${dateForm.split('-').reverse().join('-')}`;
 }
 
+function {}
+
+
 
 let $generatorReg = document.querySelector('#show-table');
 
 $generatorReg.addEventListener('click', function(){
+
+    let chickenWeightAverage = parseFloat(document.querySelector('#average-chicken-weight').value);
+    let waterMaxForm = parseFloat(document.querySelector('input[name="water-max"]:checked').value);
+
     HideForm();
     createTable();
     time();
