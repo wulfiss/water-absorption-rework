@@ -74,7 +74,20 @@ function date(){
     dateReg.textContent = `Fecha: ${dateForm.split('-').reverse().join('-')}`;
 }
 
-function {}
+function tableWeight(maxPercentage, average){
+
+    let ArrPercentageGen = function (maxPercentage){
+        let minPercentage = maxPercentage - 3.5;
+        let ArrPercentage = [];
+
+        for (let i = 0; i < 20; i++){
+            ArrPercentage[i] = parseFloat((Math.random() * (maxPercentage - minPercentage) * minPercentage).toFixed(2));
+        }
+
+        return ArrPercentage;
+    }
+
+}
 
 
 
@@ -83,10 +96,17 @@ let $generatorReg = document.querySelector('#show-table');
 $generatorReg.addEventListener('click', function(){
 
     let chickenWeightAverage = parseFloat(document.querySelector('#average-chicken-weight').value);
-    let waterMaxForm = parseFloat(document.querySelector('input[name="water-max"]:checked').value);
+    let customWaterMax = parseFloat(document.querySelector('input[name="custom"]').value);
+
+    //Text max absorption and check if it need to use one of the predefined ones or a custom one.
+    let waterMaxForm = parseFloat(document.querySelector('input[name="water-max"]:checked').value) == 100 ?
+         customWaterMax : parseFloat(document.querySelector('input[name="water-max"]:checked').value);
+
 
     HideForm();
     createTable();
+    tableWeight(waterMaxForm, chickenWeightAverage);
     time();
     date();
+    
 });
