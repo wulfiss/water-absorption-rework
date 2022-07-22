@@ -7,12 +7,14 @@ function createTable(){
         for(let j = 0; j < 6; j++){
             let td = tr.insertCell();
             td.appendChild(document.createTextNode('1234'));
+            td.setAttribute("data-axis", `${j}:${i}`);
         }
     }
 
     table.appendChild(tBody);
 }
 
+document.createAttribute
 function HideForm(){
     let displayReg = document.querySelector('.reg');
     let displayForm = document.querySelector('.form');
@@ -94,7 +96,7 @@ function tableWeight(maxPercentage, average){
 
     }
 
-    console.log(ArrPercentageGen(maxPercentage));
+    return ArrPercentageGen(maxPercentage);
 
 }
 
@@ -118,4 +120,11 @@ $generatorReg.addEventListener('click', function(){
     time();
     date();
     
+    let o = 6;
+    for(l = 0; l < 20; l++){
+        let lalala = document.querySelector(`td[data-axis = "${l}:${o}"`);
+        lalala.textContent = tableWeight(waterMaxForm, chickenWeightAverage)[l];
+    }
+    
 });
+
