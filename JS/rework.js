@@ -21,7 +21,7 @@ function HideForm(){
     displayForm.style.display = 'none';
 }
 
-function timeDate(){
+function time(){
 
     let sumMinutes = function(values){
         const validate = time =>{
@@ -56,7 +56,7 @@ function timeDate(){
         return result.split(":").reverse()[2] === "00" ? result.slice(3) : result;
     }
 
-    let timeForm = document.querySelector('#hour-test').value;
+    let timeForm = document.querySelector('#hour-form').value;
     let timeRegI = document.querySelector('.timeS');
     let timeRegF = document.querySelector('.timeF');
     
@@ -67,12 +67,19 @@ function timeDate(){
     
 }
 
+function date(){
+    let dateForm = document.querySelector('#date-form').value.toString();
+    let dateReg = document.querySelector('.date');
+
+    dateReg.textContent = `Fecha: ${dateForm.split('-').reverse().join('-')}`;
+}
 
 
-let $generatorREG = document.querySelector('#show-table');
+let $generatorReg = document.querySelector('#show-table');
 
-$generatorREG.addEventListener('click', function(){
+$generatorReg.addEventListener('click', function(){
     HideForm();
     createTable();
-    timeDate();
+    time();
+    date();
 });
