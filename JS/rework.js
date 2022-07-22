@@ -116,15 +116,17 @@ $generatorReg.addEventListener('click', function(){
 
     //HideForm();
     createTable();
-    tableWeight(waterMaxForm, chickenWeightAverage);
+    //let arrAbsorption = tableWeight(waterMaxForm, chickenWeightAverage);
     time();
     date();
+
+    //console.log(arrAbsorption[10]);
     
-    let o = 6;
-    for(l = 0; l < 20; l++){
+    let l = 5;
+    for(o = 0; o < 20; o++){
         let lalala = document.querySelector(`td[data-axis = "${l}:${o}"`);
-        lalala.textContent = tableWeight(waterMaxForm, chickenWeightAverage)[l];
+
+        lalala.textContent = tableWeight(waterMaxForm, chickenWeightAverage)[o];
     }
-    
 });
 
