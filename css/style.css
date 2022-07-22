@@ -6,7 +6,7 @@
 
 html{
     font-family: calibri, monospace;
-    background-color: gray;
+    background-color: rgb(68, 146, 209);
 }
 /*---------form------------*/
 
@@ -17,7 +17,8 @@ div.form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+    font-size: 18px;   
 }
 
 form#data-chicken{
@@ -26,9 +27,85 @@ form#data-chicken{
     width: calc(100vw * (9/16));;
     height: 70vh;
     padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+
 }
+
+li > ul > li{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin: 10px;
+}
+
+li{
+    margin: 20px 20px 20px 40px;
+    
+}
+
+label{
+    margin-left: 10px;
+}
+textarea{
+    margin: 10px;
+}
+
+li > div{
+    display: flex;
+    align-items: center;
+}
+
+p{
+    margin-left: 10px;
+}
+
+input[type='date'],
+input[type='time']{
+    width: fit-content;
+}
+
+input[type='number']{
+    width: 50px;
+}
+
+input[type='checkbox']{
+    width: 1.3rem;
+    height: 1.3rem;
+    color: black;
+    margin: 10px;
+}
+
+textarea#observacionForm{
+    display: block;
+    text-align: start;
+    resize: none;
+    width: 600px;
+    height: 100px;
+    padding: auto;
+}
+
+button{
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+}
+
+button:active{
+    transform: translateY(2px);
+}
+
+button{
+    margin: auto;
+}
+
 h2{
+    margin: auto auto 5px auto;
 }
+
 /*---------form------------*/
 
 /*--------registry--------*/
