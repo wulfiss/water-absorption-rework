@@ -203,6 +203,7 @@ div.dateTime > div.timeF{
     grid-area: 3 / 5 / 4 / 7;
 }
 
+/*--------Table--------*/
 table{
     grid-area: 9 / 1 / 35 / 7;
     border: var(--border);
@@ -214,6 +215,7 @@ td, th{
     border: var(--border);
     text-align: center;
 }
+/*--------Table--------*/
 
 div.pro-hidra{
     grid-area: 36 / 3 / 38 / 6;
