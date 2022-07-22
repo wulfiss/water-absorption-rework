@@ -76,16 +76,25 @@ function date(){
 
 function tableWeight(maxPercentage, average){
 
-    let ArrPercentageGen = function (maxPercentage){
-        let minPercentage = maxPercentage - 3.5;
+    let ArrPercentageGen = function (maxPercent){
+        let minPercent = maxPercent - 4.2;
         let ArrPercentage = [];
+        let sumArr = 0;
 
         for (let i = 0; i < 20; i++){
-            ArrPercentage[i] = parseFloat((Math.random() * (maxPercentage - minPercentage) * minPercentage).toFixed(2));
+            ArrPercentage[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
+            sumArr += ArrPercentage[i];
+        }
+        
+        if((sumArr / 20) > maxPercentage){
+            ArrPercentageGen(maxPercentage);
+        }else{
+            return ArrPercentage;
         }
 
-        return ArrPercentage;
     }
+
+    console.log(ArrPercentageGen(maxPercentage));
 
 }
 
@@ -99,11 +108,11 @@ $generatorReg.addEventListener('click', function(){
     let customWaterMax = parseFloat(document.querySelector('input[name="custom"]').value);
 
     //Text max absorption and check if it need to use one of the predefined ones or a custom one.
-    let waterMaxForm = parseFloat(document.querySelector('input[name="water-max"]:checked').value) == 100 ?
+    let waterMaxForm = parseFloat(document.querySelector('input[name="water-max"]:checked').value) === 100 ?
          customWaterMax : parseFloat(document.querySelector('input[name="water-max"]:checked').value);
 
 
-    HideForm();
+    //HideForm();
     createTable();
     tableWeight(waterMaxForm, chickenWeightAverage);
     time();
