@@ -86,18 +86,23 @@ textarea#observacionForm{
 }
 
 button{
-    width: 150px;
-    height: 30px;
+    font-weight: bold;
+    width: 160px;
+    height: 40px;
+    margin: auto;
     border-radius: 10px;
     border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.347);
 }
 
 button:active{
     transform: translateY(2px);
 }
 
-button{
-    margin: auto;
+button:hover{
+    cursor:pointer;
+    background-color: rgba(0, 0, 0, 0.247);
 }
 
 h2{
