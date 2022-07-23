@@ -105,6 +105,17 @@ function arrPrecintos(){
     return arrPrecintos;
 }   
 
+function arrPesoInicial(average){
+    let max = average + 0.950;
+    let min = average - 0.950;
+    let pesoInicial = [];
+
+    for(let i = 0; i < 25; i++){
+        pesoInicial[i] = parseFloat((Math.random() * (max - min) + min).toFixed(3));
+    }
+
+    return pesoInicial;
+}
 
 let $generatorReg = document.querySelector('#show-table');
 
@@ -113,30 +124,36 @@ $generatorReg.addEventListener('click', function(){
     let chickenWeightAverage = parseFloat(document.querySelector('#average-chicken-weight').value);
     let customWaterMax = parseFloat(document.querySelector('input[name="custom"]').value);
 
-    //Text max absorption and check if it need to use one of the predefined ones or a custom one.
+    /*----Text max absorption and check if it need to use one of the predefined ones or a custom one.---*/
     let waterMaxForm = parseFloat(document.querySelector('input[name="water-max"]:checked').value) === 100 ?
          customWaterMax : parseFloat(document.querySelector('input[name="water-max"]:checked').value);
 
 
     //HideForm();
     createTable();
-    //let arrAbsorption = tableWeight(waterMaxForm, chickenWeightAverage);
     time();
     date();
 
-    console.log(arrPrecintos());
+    let arrRegSeals = arrPrecintos();
+    let arrRegPesoInicial = arrPesoInicial(chickenWeightAverage);
+    let arrRegAbsorption = arrHidratacion(waterMaxForm);
+    
+
     
     for(let x = 0; x < 25; x++){
-        let polloNumber = document.querySelector(`td[data-axis = "0:${x}"]`);
-        let arrRegPrecintos = document.querySelector(`td[data-axis = "1:${x}"]`);
+        let tdPolloNumber = document.querySelector(`td[data-axis = "0:${x}"]`);
+        let tdRegPrecintos = document.querySelector(`td[data-axis = "1:${x}"]`);
+        let tdRegPesoInicial = document.querySelector(`td[data-axis = "2:${x}"]`);
 
-        polloNumber.textContent = x + 1;
-        arrRegPrecintos.textContent = arrPrecintos()[x].toFixed().toLocaleString();
+        tdPolloNumber.textContent = (x + 1).toLocaleString();
+        tdRegPrecintos.textContent = arrRegSeals[x].toFixed().toLocaleString();
+        tdRegPesoInicial.textContent = arrRegPesoInicial[x].toFixed(3).toLocaleString();
     }
     
-    for(let o = 0; o < 20; o++){
-        let arrRegHidratacion = document.querySelector(`td[data-axis = "5:${o}"]`);
-        arrRegHidratacion.textContent = arrHidratacion(waterMaxForm)[o].toFixed(2).toLocaleString();
+    for(let x = 0; x < 20; x++){
+        let tdRegHidratacion = document.querySelector(`td[data-axis = "5:${x}"]`);
+        tdRegHidratacion.textContent = arrRegAbsorption[x].toFixed(2).toLocaleString();
     }
+    
 }); 
 
