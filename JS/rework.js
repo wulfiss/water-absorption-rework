@@ -6,7 +6,7 @@ function createTable(){
         let tr = tBody.insertRow();
         for(let j = 0; j < 6; j++){
             let td = tr.insertCell();
-            td.appendChild(document.createTextNode('1234'));
+            td.appendChild(document.createTextNode('----'));
             td.setAttribute("data-axis", `${j}:${i}`);
         }
     }
@@ -14,7 +14,6 @@ function createTable(){
     table.appendChild(tBody);
 }
 
-document.createAttribute
 function HideForm(){
     let displayReg = document.querySelector('.reg');
     let displayForm = document.querySelector('.form');
@@ -76,29 +75,24 @@ function date(){
     dateReg.textContent = `Fecha: ${dateForm.split('-').reverse().join('-')}`;
 }
 
-function tableWeight(maxPercentage, average){
+function ArrHidratacion(maxPercent){
 
-    let ArrPercentageGen = function (maxPercent){
-        let minPercent = maxPercent - 4.2;
-        let ArrPercentage = [];
-        let sumArr = 0;
+    let minPercent = maxPercent - 4.2;
+    let ArrHidratacion = [];
+    let sumArr = 0;
 
-        for (let i = 0; i < 20; i++){
-            ArrPercentage[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
-            sumArr += ArrPercentage[i];
-        }
-        
-        if((sumArr / 20) > maxPercentage){
-            ArrPercentageGen(maxPercentage);
-        }else{
-            return ArrPercentage;
-        }
-
+    for (let i = 0; i < 20; i++){
+        ArrHidratacion[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
+        sumArr += ArrHidratacion[i];
     }
-
-    return ArrPercentageGen(maxPercentage);
-
+        
+    if((sumArr / 20) > maxPercent){
+        ArrHidratacion(maxPercent);
+    }else{
+        return ArrHidratacion;
+    }
 }
+
 
 
 
@@ -126,7 +120,7 @@ $generatorReg.addEventListener('click', function(){
     for(o = 0; o < 20; o++){
         let lalala = document.querySelector(`td[data-axis = "${l}:${o}"`);
 
-        lalala.textContent = tableWeight(waterMaxForm, chickenWeightAverage)[o];
+        lalala.textContent = ArrHidratacion(waterMaxForm)[o].toFixed(2).toLocaleString();
     }
-});
+}); 
 
