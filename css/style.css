@@ -34,6 +34,12 @@ form#data-chicken{
 
 }
 
+form > ul{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
 li > ul > li{
     display: flex;
     list-style: none;
@@ -42,8 +48,7 @@ li > ul > li{
 }
 
 li{
-    margin: 20px 20px 20px 40px;
-    
+    margin: 10px 20px 10px 40px;
 }
 
 label{
@@ -94,10 +99,9 @@ textarea#observacionForm{
     display: block;
     text-align: start;
     resize: none;
-    width: 600px;
+    width: calc(80vw * (9/16));
     height: 100px;
-    padding: auto;
-    margin: 10px;
+    margin: 0 10px 10px calc(1vw * (9/16));
     border-radius: 10px;
 }
 
@@ -129,7 +133,7 @@ h2{
 
 /*--------registry--------*/
 div.reg{
-    display: grid;
+    display: none;
     grid-template-columns: var(--template-column);
     grid-template-rows: repeat(48, 20px);
     background-color: white;

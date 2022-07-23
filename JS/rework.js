@@ -111,49 +111,6 @@ function arrHidratacion(maxPercentageoo){
     calculate(maxPercentageoo);
 
     return arrHidrata;
-
-/*
-    function myFunction(item){
-        sum += item;
-    }
-
-    function comprobation(prom, max){
-        if(prom <= max){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    function tailCall(fun){
-        if(fun === true){
-
-        }else{
-            arrHidrata.length = 0;
-            sum = 0;
-            promedio = 0;
-            calculate(maxPercentageoo);
-            tailCall(comprobation(promedio, maxPercentageoo));
-        }
-    }
-
-    function calculate(maxPercentage){
-        let maxPercent = maxPercentage * 1.8; 
-        let minPercent = maxPercentage - 4.2;
-
-        for (let i = 0; i < 20; i++){
-            arrHidrata[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
-        }
-        
-        arrHidrata.forEach(myFunction);
-    
-        promedio = sum / 20;
-    }
-    calculate(maxPercentageoo);
-    tailCall(comprobation(promedio, maxPercentageoo));
-    
-    return arrHidrata;
-*/
 }
     
 
@@ -211,7 +168,7 @@ $generatorReg.addEventListener('click', function(){
          customWaterMax : parseFloat(document.querySelector('input[name="water-max"]:checked').value);
 
 
-    //HideForm();
+    HideForm();
     createTable();
     time();
     date();
@@ -312,6 +269,6 @@ $generatorReg.addEventListener('click', function(){
 
     }/*--- Random seal lost -----*/
     
-return false;
+
 }); 
 
