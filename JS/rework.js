@@ -75,17 +75,87 @@ function date(){
     dateReg.textContent = `Fecha: ${dateForm.split('-').reverse().join('-')}`;
 }
 
-function arrHidratacion(maxPercentage){
-    
-    let maxPercent = maxPercentage * 1.8; 
-    let minPercent = maxPercentage - 4.2;
+function arrHidratacion(maxPercentageoo){
     let arrHidrata = [];
+    let sum = 0;
+    let promedio = 0;
 
-    for (let i = 0; i < 20; i++){
-        arrHidrata[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
+    function myFunction(item){
+        sum += item;
     }
+
+    function reCalculate(){
+        calculate(maxPercentageoo);
+    }
+
+    function calculate(maxPercentage){
+        let maxPercent = maxPercentage * 1.8; 
+        let minPercent = maxPercentage - 4.2;
+
+        for (let i = 0; i < 20; i++){
+            arrHidrata[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
+        }
+        
+        arrHidrata.forEach(myFunction);
+    
+        promedio = sum / 20;
+
+        if(promedio > maxPercentage){
+            arrHidrata.length = 0;
+            sum = 0;
+            promedio = 0;
+            reCalculate();
+        }
+    }
+
+    calculate(maxPercentageoo);
+
     return arrHidrata;
+
+/*
+    function myFunction(item){
+        sum += item;
+    }
+
+    function comprobation(prom, max){
+        if(prom <= max){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function tailCall(fun){
+        if(fun === true){
+
+        }else{
+            arrHidrata.length = 0;
+            sum = 0;
+            promedio = 0;
+            calculate(maxPercentageoo);
+            tailCall(comprobation(promedio, maxPercentageoo));
+        }
+    }
+
+    function calculate(maxPercentage){
+        let maxPercent = maxPercentage * 1.8; 
+        let minPercent = maxPercentage - 4.2;
+
+        for (let i = 0; i < 20; i++){
+            arrHidrata[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
+        }
+        
+        arrHidrata.forEach(myFunction);
+    
+        promedio = sum / 20;
+    }
+    calculate(maxPercentageoo);
+    tailCall(comprobation(promedio, maxPercentageoo));
+    
+    return arrHidrata;
+*/
 }
+    
 
 function arrPrecintos(){
     let arrPrecintos = [];
@@ -239,10 +309,9 @@ $generatorReg.addEventListener('click', function(){
         sealRegReplace(arrExtraSeal[2], 23);
         sealRegReplace(arrExtraSeal[3], 24);
         sealRegReplace(arrExtraSeal[4], 25);
-    }
 
-
-    /*--- Random seal lost -----*/
-
+    }/*--- Random seal lost -----*/
+    
+return false;
 }); 
 
