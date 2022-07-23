@@ -75,25 +75,35 @@ function date(){
     dateReg.textContent = `Fecha: ${dateForm.split('-').reverse().join('-')}`;
 }
 
-function ArrHidratacion(maxPercent){
+function arrHidratacion(maxPercent){
 
     let minPercent = maxPercent - 4.2;
-    let ArrHidratacion = [];
+    let arrHidrata = [];
     let sumArr = 0;
 
     for (let i = 0; i < 20; i++){
-        ArrHidratacion[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
-        sumArr += ArrHidratacion[i];
+        arrHidrata[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
+        sumArr += arrHidrata[i];
     }
         
     if((sumArr / 20) > maxPercent){
-        ArrHidratacion(maxPercent);
+        arrHidratacion(maxPercent);
     }else{
-        return ArrHidratacion;
+        return arrHidrata;
     }
 }
 
+function arrPrecintos(){
+    let arrPrecintos = [];
+    const maxPrecinto = parseFloat((Math.random() * (999999 - 1000) + 1000).toFixed());
+    const minPrecinto = maxPrecinto - 100;
 
+    for(let i = 0; i < 25; i++){
+        arrPrecintos[i] = parseFloat((Math.random() * (maxPrecinto - minPrecinto) + minPrecinto).toFixed());
+    }
+
+    return arrPrecintos;
+}   
 
 
 let $generatorReg = document.querySelector('#show-table');
@@ -114,13 +124,19 @@ $generatorReg.addEventListener('click', function(){
     time();
     date();
 
-    //console.log(arrAbsorption[10]);
+    console.log(arrPrecintos());
     
-    let l = 5;
-    for(o = 0; o < 20; o++){
-        let lalala = document.querySelector(`td[data-axis = "${l}:${o}"`);
+    for(let x = 0; x < 25; x++){
+        let polloNumber = document.querySelector(`td[data-axis = "0:${x}"]`);
+        let arrRegPrecintos = document.querySelector(`td[data-axis = "1:${x}"]`);
 
-        lalala.textContent = ArrHidratacion(waterMaxForm)[o].toFixed(2).toLocaleString();
+        polloNumber.textContent = x + 1;
+        arrRegPrecintos.textContent = arrPrecintos()[x].toFixed().toLocaleString();
+    }
+    
+    for(let o = 0; o < 20; o++){
+        let arrRegHidratacion = document.querySelector(`td[data-axis = "5:${o}"]`);
+        arrRegHidratacion.textContent = arrHidratacion(waterMaxForm)[o].toFixed(2).toLocaleString();
     }
 }); 
 
