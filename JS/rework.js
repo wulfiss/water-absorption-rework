@@ -269,6 +269,10 @@ $generatorReg.addEventListener('click', function(){
 
     }/*--- Random seal lost -----*/
     
+    let textareaReg = document.querySelector('#medidasCorrectivas');
+    let textareaForm = document.querySelector('#observacionForm').value;
+
+    textareaReg.textContent = `Observaciones: ${textareaForm}`;
 
 }); 
 
