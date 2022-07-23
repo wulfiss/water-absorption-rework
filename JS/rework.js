@@ -76,21 +76,15 @@ function date(){
 }
 
 function arrHidratacion(maxPercentage){
+    
     let maxPercent = maxPercentage * 1.8; 
     let minPercent = maxPercentage - 4.2;
     let arrHidrata = [];
-    let sumArr = 0;
 
     for (let i = 0; i < 20; i++){
         arrHidrata[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
-        sumArr += arrHidrata[i];
     }
-        
-    if((sumArr / 20) > maxPercentage){
-        arrHidratacion(maxPercentage);
-    }else{
-        return arrHidrata;
-    }
+    return arrHidrata;
 }
 
 function arrPrecintos(){
@@ -125,6 +119,17 @@ function arrDiferencia(one, two){
     return arr;
 }    
 
+function arrPesoFinal(one, two){
+    let arr = [];
+
+    for(let x = 0; x < two.length; x++){
+        arr[x] = one[x] + two[x];
+    }
+
+    return arr;
+}
+
+
 let $generatorReg = document.querySelector('#show-table');
 
 $generatorReg.addEventListener('click', function(){
@@ -145,8 +150,11 @@ $generatorReg.addEventListener('click', function(){
     let arrRegSeals = arrPrecintos();
     let arrRegPesoInicial = arrPesoInicial(chickenWeightAverage);
     let arrRegAbsorption = arrHidratacion(waterMaxForm);
+    console.log(arrRegAbsorption);
     let arrRegDiferencia = arrDiferencia(arrRegPesoInicial, arrRegAbsorption);
-
+    let arrRegPesoFinal = arrPesoFinal(arrRegPesoInicial, arrRegDiferencia);
+    let sumPromedio = 0;
+    let regPromedio = document.querySelector('.pro-result');
     
     for(let x = 0; x < 25; x++){
         let tdPolloNumber = document.querySelector(`td[data-axis = "0:${x}"]`);
@@ -165,10 +173,14 @@ $generatorReg.addEventListener('click', function(){
     for(let x = 0; x < 20; x++){
         let tdRegHidratacion = document.querySelector(`td[data-axis = "5:${x}"]`);
         let tdRegDiferencia = document.querySelector(`td[data-axis = "4:${x}"]`);
+        let tdRegPesoFinal = document.querySelector(`td[data-axis = "3:${x}"]`);
 
         tdRegHidratacion.textContent = arrRegAbsorption[x].toFixed(2).toLocaleString();
         tdRegDiferencia.textContent = arrRegDiferencia[x].toFixed(3).toLocaleString();
+        tdRegPesoFinal.textContent = arrRegPesoFinal[x].toFixed(3).toLocaleString();
+        sumPromedio+=arrRegAbsorption[x];
+        
     }
-    
+    regPromedio.textContent = `${(sumPromedio/20).toFixed(2)} %`;
 }); 
 
