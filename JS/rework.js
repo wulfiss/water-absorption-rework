@@ -75,9 +75,9 @@ function date(){
     dateReg.textContent = `Fecha: ${dateForm.split('-').reverse().join('-')}`;
 }
 
-function arrHidratacion(maxPercent){
-
-    let minPercent = maxPercent - 4.2;
+function arrHidratacion(maxPercentage){
+    let maxPercent = maxPercentage * 1.8; 
+    let minPercent = maxPercentage - 4.2;
     let arrHidrata = [];
     let sumArr = 0;
 
@@ -86,8 +86,8 @@ function arrHidratacion(maxPercent){
         sumArr += arrHidrata[i];
     }
         
-    if((sumArr / 20) > maxPercent){
-        arrHidratacion(maxPercent);
+    if((sumArr / 20) > maxPercentage){
+        arrHidratacion(maxPercentage);
     }else{
         return arrHidrata;
     }
@@ -117,6 +117,14 @@ function arrPesoInicial(average){
     return pesoInicial;
 }
 
+function arrDiferencia(one, two){
+    let arr = []; 
+    for (let i = 0; i < two.length; i++){
+        arr[i] = (one[i] * two[i]) / 100;
+    }
+    return arr;
+}    
+
 let $generatorReg = document.querySelector('#show-table');
 
 $generatorReg.addEventListener('click', function(){
@@ -137,7 +145,7 @@ $generatorReg.addEventListener('click', function(){
     let arrRegSeals = arrPrecintos();
     let arrRegPesoInicial = arrPesoInicial(chickenWeightAverage);
     let arrRegAbsorption = arrHidratacion(waterMaxForm);
-    
+    let arrRegDiferencia = arrDiferencia(arrRegPesoInicial, arrRegAbsorption);
 
     
     for(let x = 0; x < 25; x++){
@@ -145,14 +153,21 @@ $generatorReg.addEventListener('click', function(){
         let tdRegPrecintos = document.querySelector(`td[data-axis = "1:${x}"]`);
         let tdRegPesoInicial = document.querySelector(`td[data-axis = "2:${x}"]`);
 
+        
+
         tdPolloNumber.textContent = (x + 1).toLocaleString();
         tdRegPrecintos.textContent = arrRegSeals[x].toFixed().toLocaleString();
         tdRegPesoInicial.textContent = arrRegPesoInicial[x].toFixed(3).toLocaleString();
+
+        
     }
     
     for(let x = 0; x < 20; x++){
         let tdRegHidratacion = document.querySelector(`td[data-axis = "5:${x}"]`);
+        let tdRegDiferencia = document.querySelector(`td[data-axis = "4:${x}"]`);
+
         tdRegHidratacion.textContent = arrRegAbsorption[x].toFixed(2).toLocaleString();
+        tdRegDiferencia.textContent = arrRegDiferencia[x].toFixed(3).toLocaleString();
     }
     
 }); 
