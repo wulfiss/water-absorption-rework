@@ -129,7 +129,6 @@ function arrPesoFinal(one, two){
     return arr;
 }
 
-
 let $generatorReg = document.querySelector('#show-table');
 
 $generatorReg.addEventListener('click', function(){
@@ -181,6 +180,69 @@ $generatorReg.addEventListener('click', function(){
         sumPromedio+=arrRegAbsorption[x];
         
     }
+
     regPromedio.textContent = `${(sumPromedio/20).toFixed(2)} %`;
+
+    /*--- Random seal lost -----*/
+    let checkBox = document.getElementById('seal-lost').checked;
+    let arrExtraSeal = [21, 22, 23, 24, 25];
+    let numberLostSeal = parseFloat((Math.random() * (3 - 0) + 0).toFixed());
+    let sealLost = 0;
+
+    let sealRegReplace = function(arrReplace, seal){
+
+        let lostSeal = [];
+        let sealReplace = [];
+    
+        if(arrReplace != seal){
+            for (let k = 0; k <= 5; k++){
+                lostSeal[k] = document.querySelector(`td[data-axis = "${k}:${arrReplace - 1}"]`);
+                sealReplace[k] = document.querySelector(`td[data-axis = "${k}:${[seal - 1]}"]`);
+            }
+    
+            for (let k = 1; k <=5; k++){
+                sealReplace[k].textContent = lostSeal[k].textContent;
+            }
+    
+            lostSeal[1].textContent = arrRegSeals[seal - 1];
+            lostSeal[2].textContent = arrRegPesoInicial[seal - 1];
+    
+            for (let k = 3; k <=5; k++){
+                lostSeal[k].textContent = "----";
+            }
+    
+        }else{
+            return false;
+        }
+    }
+
+    if(checkBox == true){
+        function testProNumb(){
+            sealLost = parseFloat((Math.random() * (20 - 1) + 1).toFixed());
+            if(!arrExtraSeal.includes(sealLost)){
+                return sealLost;
+            } else{
+                return testProNumb();
+            }
+        }
+
+        for(numberLostSeal; numberLostSeal >= 0; numberLostSeal--){
+            arrExtraSeal[numberLostSeal] = testProNumb();
+        }
+
+        arrExtraSeal.sort(function(a,b){
+            return a - b;
+        });
+
+        sealRegReplace(arrExtraSeal[0], 21);
+        sealRegReplace(arrExtraSeal[1], 22);
+        sealRegReplace(arrExtraSeal[2], 23);
+        sealRegReplace(arrExtraSeal[3], 24);
+        sealRegReplace(arrExtraSeal[4], 25);
+    }
+
+
+    /*--- Random seal lost -----*/
+
 }); 
 
