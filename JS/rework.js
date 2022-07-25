@@ -78,28 +78,23 @@ function date(){
 function arrHidratacion(maxPercentage){
     let arrHidrata = [];
     let sum = 0;
-    let promedio = 0;
     let n = false;
+    let maxPercent = maxPercentage * 1.8; 
+    let minPercent = maxPercentage - 4.2;
 
     while(n == false){
-        let maxPercent = maxPercentage * 1.8; 
-        let minPercent = maxPercentage - 4.2;
         arrHidrata = [];
         sum = 0;
-        promedio = 0;
 
         for (let i = 0; i < 20; i++){
             arrHidrata[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
             sum += arrHidrata[i];
         }
         
-        promedio = sum / 20;
-
-        if(promedio < maxPercentage){
+        if(sum / 20 < maxPercentage){
             n = true;
         }
     }
-
     return arrHidrata;
 }
     
@@ -166,7 +161,6 @@ $generatorReg.addEventListener('click', function(){
     let arrRegSeals = arrPrecintos();
     let arrRegPesoInicial = arrPesoInicial(chickenWeightAverage);
     let arrRegAbsorption = arrHidratacion(waterMaxForm);
-    console.log(arrRegAbsorption);
     let arrRegDiferencia = arrDiferencia(arrRegPesoInicial, arrRegAbsorption);
     let arrRegPesoFinal = arrPesoFinal(arrRegPesoInicial, arrRegDiferencia);
     let sumPromedio = 0;
@@ -177,13 +171,9 @@ $generatorReg.addEventListener('click', function(){
         let tdRegPrecintos = document.querySelector(`td[data-axis = "1:${x}"]`);
         let tdRegPesoInicial = document.querySelector(`td[data-axis = "2:${x}"]`);
 
-        
-
         tdPolloNumber.textContent = (x + 1).toLocaleString();
         tdRegPrecintos.textContent = arrRegSeals[x].toFixed().toLocaleString();
         tdRegPesoInicial.textContent = arrRegPesoInicial[x].toFixed(3).toLocaleString();
-
-        
     }
     
     for(let x = 0; x < 20; x++){
@@ -195,7 +185,6 @@ $generatorReg.addEventListener('click', function(){
         tdRegDiferencia.textContent = arrRegDiferencia[x].toFixed(3).toLocaleString();
         tdRegPesoFinal.textContent = arrRegPesoFinal[x].toFixed(3).toLocaleString();
         sumPromedio+=arrRegAbsorption[x];
-        
     }
 
     regPromedio.textContent = `${(sumPromedio/20).toFixed(2)} %`;
@@ -227,9 +216,6 @@ $generatorReg.addEventListener('click', function(){
             for (let k = 3; k <=5; k++){
                 lostSeal[k].textContent = "----";
             }
-    
-        }else{
-            return false;
         }
     }
 
