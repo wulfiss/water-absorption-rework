@@ -75,40 +75,30 @@ function date(){
     dateReg.textContent = `Fecha: ${dateForm.split('-').reverse().join('-')}`;
 }
 
-function arrHidratacion(maxPercentageoo){
+function arrHidratacion(maxPercentage){
     let arrHidrata = [];
     let sum = 0;
     let promedio = 0;
+    let n = false;
 
-    function myFunction(item){
-        sum += item;
-    }
-
-    function reCalculate(){
-        calculate(maxPercentageoo);
-    }
-
-    function calculate(maxPercentage){
+    while(n == false){
         let maxPercent = maxPercentage * 1.8; 
         let minPercent = maxPercentage - 4.2;
+        arrHidrata = [];
+        sum = 0;
+        promedio = 0;
 
         for (let i = 0; i < 20; i++){
             arrHidrata[i] = parseFloat((Math.random() * (maxPercent - minPercent) + minPercent).toFixed(2));
+            sum += arrHidrata[i];
         }
         
-        arrHidrata.forEach(myFunction);
-    
         promedio = sum / 20;
 
-        if(promedio > maxPercentage){
-            arrHidrata.length = 0;
-            sum = 0;
-            promedio = 0;
-            reCalculate();
+        if(promedio < maxPercentage){
+            n = true;
         }
     }
-
-    calculate(maxPercentageoo);
 
     return arrHidrata;
 }
