@@ -17,7 +17,9 @@ function createTable(){
 function HideForm(){
     let displayReg = document.querySelector('.reg');
     let displayForm = document.querySelector('.form');
+    let display$print = document.querySelector('#printer');
 
+    display$print.style.display = 'block';
     displayReg.style.display = 'grid';
     displayForm.style.display = 'none';
 }
@@ -141,6 +143,14 @@ function arrPesoFinal(one, two){
     return arr;
 }
 
+function printDiv(divName){
+    let printContents = document.querySelector(divName).innerHTML;
+    w=window.open();
+    w.document.write(printContents);
+    w.print();
+    w.close();
+}
+
 let $generatorReg = document.querySelector('#show-table');
 
 $generatorReg.addEventListener('click', function(){
@@ -249,6 +259,16 @@ $generatorReg.addEventListener('click', function(){
     let textareaForm = document.querySelector('#observacionForm').value;
 
     textareaReg.textContent = `Observaciones: ${textareaForm}`;
-
 }); 
+
+let $print = document.querySelector('#printer');
+
+$print.addEventListener('click', function(){
+    window.print();
+});
+
+
+
+
+
 
