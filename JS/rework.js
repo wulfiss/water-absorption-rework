@@ -103,7 +103,7 @@ function arrHidratacion(maxPercentage){
 
 function arrPrecintos(){
     let arrPrecintos = [];
-    const maxPrecinto = parseFloat((Math.random() * (999999 - 1000) + 1000).toFixed());
+    const maxPrecinto = parseFloat((Math.random() * (9999 - 1000) + 1000).toFixed());
     const minPrecinto = maxPrecinto - 100;
 
     for(let i = 0; i < 25; i++){
