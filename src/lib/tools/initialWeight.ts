@@ -1,3 +1,5 @@
+import { random } from './random';
+
 /* create an array of 25 number eg: 2.234; */
 const initialWeight = (averageWeight: number, total = 25) => {
 	// 25 Number of chicken in the test required for senasa
@@ -8,9 +10,7 @@ const initialWeight = (averageWeight: number, total = 25) => {
 	const minWeight = averageWeight - CORRECTION_VALUE;
 
 	for (let i = 0; i < total; i += 1) {
-		const tmp: number = parseFloat(
-			(Math.random() * (maxWeight - minWeight) + minWeight).toFixed(3)
-		);
+		const tmp: number = random(maxWeight, minWeight);
 		arr.push(tmp);
 	}
 

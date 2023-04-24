@@ -1,3 +1,5 @@
+import { random } from './random';
+
 const sealGenerator = (total = 25) => {
 	// 25 Number of chicken in the test required for senasa
 
@@ -8,11 +10,11 @@ const sealGenerator = (total = 25) => {
 
 	const arr: number[] = [];
 
-	const maxSeal = parseInt((Math.random() * (CEILING_SEAL - FLOOR_SEAL) + FLOOR_SEAL).toFixed());
+	const maxSeal = random(CEILING_SEAL, FLOOR_SEAL);
 	const minSeal = maxSeal - SUBFLOOR_SEAL;
 
 	for (let i = 0; i < total; i += 1) {
-		const tmp: number = parseInt((Math.random() * (maxSeal - minSeal) + minSeal).toFixed());
+		const tmp: number = random(maxSeal, minSeal);
 		arr.push(tmp);
 	}
 

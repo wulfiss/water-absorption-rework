@@ -1,4 +1,5 @@
 import { averageCalculator } from './averageCalculator';
+import { random } from './random';
 /* calculate the 20 percentages that their average in lesser than the user provide
 and will return them in form of an array but in this case will update the corresponding store. */
 
@@ -19,9 +20,7 @@ const percentageGenerator = (percentage: number, total = 20) => {
 		//generate 20 number every time until the average of them is lesser that the percentage provide
 		arr = [];
 		for (let i = 0; i < total; i += 1) {
-			const tmp: number = parseFloat(
-				(Math.random() * (maxPercentage - minPercentage) + minPercentage).toFixed(2)
-			);
+			const tmp: number = random(maxPercentage, minPercentage);
 			arr.push(tmp);
 		}
 
