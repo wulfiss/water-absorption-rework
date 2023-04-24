@@ -1,3 +1,4 @@
+import { initialWeights } from '../stores/store';
 /* create an array of 25 number eg: 2.234; */
 const initialWeight = (averageWeight: number) => {
 	const MAX_AMOUNT = 25; //Number of chicken in the test required for senasa
@@ -14,7 +15,7 @@ const initialWeight = (averageWeight: number) => {
 		arr.push(tmp);
 	}
 
-	return arr;
+	initialWeights.set(arr);
 };
 
 export { initialWeight };
