@@ -25,30 +25,30 @@
 	<div>
 		initial
 		{#each $initialWeights as initial}
-			<div>{initial}</div>
+			<div>{initial.toFixed(3)}</div>
 		{/each}
 	</div>
 	<div>
 		final
 		{#each $finalWeights as final}
-			<div>{final}</div>
+			<div>{final.toFixed(3)}</div>
 		{/each}
 	</div>
 	<div>
 		difference
 		{#each $differences as difference}
-			<div>{difference}</div>
+			<div>{difference.toFixed(3)}</div>
 		{/each}
 	</div>
 	<div>
 		percentages
 		{#each $percentages as percentage}
-			<div>{percentage}</div>
+			<div>{percentage.toFixed(2)}</div>
 		{/each}
 	</div>
 </div>
 <div>
-	average: {$averageFinal}
+	average: {$averageFinal.toFixed(2)}
 </div>
 
 <style>
