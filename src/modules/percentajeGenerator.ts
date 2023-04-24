@@ -1,6 +1,9 @@
 import { averageCalculator } from './averageCalculator';
 
-const percentageGenerator = (averageWeight: number, percentage: number) => {
+/* calculate the 20 percentages that their average in lesser than the user provide
+and will return them in form of an array but in this case will update the corresponding store. */
+
+const percentageGenerator = (percentage: number) => {
 	const TOTAL_VALUES = 20; //fix number of chickens ask for Senasa in the test
 	const MAX_CORRECTION_PERCENTAGE = 1.8;
 	/*    fix number for calculating a ceiling percentage, for example with 4.5% 
@@ -14,6 +17,7 @@ const percentageGenerator = (averageWeight: number, percentage: number) => {
 	let n = null;
 
 	while (!n) {
+		//generate 20 number every time until the average of them is lesser that the percentage provide
 		arr = [];
 		for (let i = 0; i < TOTAL_VALUES; i += 1) {
 			const tmp: number = parseFloat(
@@ -22,7 +26,7 @@ const percentageGenerator = (averageWeight: number, percentage: number) => {
 			arr.push(tmp);
 		}
 
-		n = averageCalculator(arr, percentage);
+		n = averageCalculator(arr, percentage); //return true or false
 	}
 
 	console.log(arr);
