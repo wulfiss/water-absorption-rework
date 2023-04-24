@@ -27,23 +27,27 @@
 		</div>
 		<div class="childGroup">
 			{#each $sealsNumber as seal, i}
-				<div id="child{i}" class="child" data-id={i}>
-					<div class="cells">{seal}</div>
+				<div id="child{i}" class="child">
+					<div class="cells">{seal.toFixed()}</div>
+
 					{#if !$initialWeights[i]}
 						<div class="cells">{'----'}</div>
 					{:else}
 						<div class="cells">{$initialWeights[i].toFixed(3)}</div>
 					{/if}
+
 					{#if !$finalWeights[i]}
 						<div class="cells">{'----'}</div>
 					{:else}
 						<div class="cells">{$finalWeights[i].toFixed(3)}</div>
 					{/if}
+
 					{#if !$differences[i]}
 						<div class="cells">{'----'}</div>
 					{:else}
 						<div class="cells">{$differences[i].toFixed(3)}</div>
 					{/if}
+
 					{#if !$percentages[i]}
 						<div class="cells">{'----'}</div>
 					{:else}
