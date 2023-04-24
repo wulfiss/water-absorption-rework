@@ -7,14 +7,7 @@
 		differences,
 		averageFinal
 	} from '$lib/stores/store';
-
-	const swapContent = () => {
-		let tmpOne = document.querySelector('#child0');
-		let tmpTwo = document.querySelector('#child23');
-
-		let tmp = tmpOne?.innerHTML;
-		tmpTwo.innerHTML = tmp;
-	};
+	import { swapContent } from '$lib/tools/swapElements';
 </script>
 
 <div id="main">
