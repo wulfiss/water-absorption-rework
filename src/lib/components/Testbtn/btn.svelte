@@ -27,16 +27,16 @@
 		averageFinal.set(averageCalculator($percentages, userPercentage));
 		differences.set(difference($initialWeights, $percentages));
 		finalWeights.set(finalWeight($initialWeights, $differences));
-	};
 
-	$: console.log(
-		$sealsNumber,
-		$percentages,
-		$initialWeights,
-		$finalWeights,
-		$differences,
-		$averageFinal
-	);
+		console.log(
+			$sealsNumber,
+			$percentages,
+			$initialWeights,
+			$finalWeights,
+			$differences,
+			$averageFinal
+		);
+	};
 </script>
 
-<button on:click={handleCall(25, 2.5, 20, 4.5)}>click</button>
+<button on:click={() => handleCall(25, 2.5, 20, 4.5)}>click</button>
