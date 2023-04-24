@@ -7,6 +7,14 @@
 		differences,
 		averageFinal
 	} from '$lib/stores/store';
+
+	const swapContent = () => {
+		let tmpOne = document.querySelector('#child0');
+		let tmpTwo = document.querySelector('#child23');
+
+		let tmp = tmpOne?.innerHTML;
+		tmpTwo.innerHTML = tmp;
+	};
 </script>
 
 <div id="main">
@@ -18,32 +26,40 @@
 		<div class="cells">Diferencia</div>
 		<div class="cells">Hidratación</div>
 	</div>
-	{#each $sealsNumber as seal, i}
-		<div id="child" data-id={i}>
-			<div class="cells">{i + 1}</div>
-			<div class="cells">{seal}</div>
-			{#if !$initialWeights[i]}
-				<div class="cells">{'----'}</div>
-			{:else}
-				<div class="cells">{$initialWeights[i].toFixed(3)}</div>
-			{/if}
-			{#if !$finalWeights[i]}
-				<div class="cells">{'----'}</div>
-			{:else}
-				<div class="cells">{$finalWeights[i].toFixed(3)}</div>
-			{/if}
-			{#if !$differences[i]}
-				<div class="cells">{'----'}</div>
-			{:else}
-				<div class="cells">{$differences[i].toFixed(3)}</div>
-			{/if}
-			{#if !$percentages[i]}
-				<div class="cells">{'----'}</div>
-			{:else}
-				<div class="cells">{$percentages[i].toFixed(3)}</div>
-			{/if}
+	<div class="tableBody">
+		<div class="sealsGroup">
+			{#each $sealsNumber as seal, i}
+				<div class="seals">{i + 1}</div>
+			{/each}
 		</div>
-	{/each}
+		<div class="childGroup">
+			{#each $sealsNumber as seal, i}
+				<div id="child{i}" class="child" data-id={i}>
+					<div class="cells">{seal}</div>
+					{#if !$initialWeights[i]}
+						<div class="cells">{'----'}</div>
+					{:else}
+						<div class="cells">{$initialWeights[i].toFixed(3)}</div>
+					{/if}
+					{#if !$finalWeights[i]}
+						<div class="cells">{'----'}</div>
+					{:else}
+						<div class="cells">{$finalWeights[i].toFixed(3)}</div>
+					{/if}
+					{#if !$differences[i]}
+						<div class="cells">{'----'}</div>
+					{:else}
+						<div class="cells">{$differences[i].toFixed(3)}</div>
+					{/if}
+					{#if !$percentages[i]}
+						<div class="cells">{'----'}</div>
+					{:else}
+						<div class="cells">{$percentages[i].toFixed(3)}</div>
+					{/if}
+				</div>
+			{/each}
+		</div>
+	</div>
 	<div>
 		{#if !$averageFinal}
 			<div>average: {'----'}</div>
@@ -52,15 +68,36 @@
 		{/if}
 	</div>
 </div>
+<button on:click={() => swapContent()}>click</button>
 
 <style>
-	div#main {
+	div.tableBody {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
 	}
 
-	div#child,
+	div.sealsGroup {
+		display: grid;
+		grid-column-start: 1;
+		grid-column-end: 2;
+		justify-items: center;
+	}
+
+	div.childGroup {
+		display: grid;
+		grid-column-start: 2;
+		grid-column-end: 7;
+	}
+
 	div#header {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
+		justify-items: center;
+	}
+
+	div.child {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
 		justify-items: center;
 	}
 </style>
