@@ -1,7 +1,7 @@
 const difference = (initial: number[], percentage: number[]) => {
 	const arr: number[] = [];
 
-	for (let i = 0; i < initial.length; i += 1) {
+	for (let i = 0; i < percentage.length; i += 1) {
 		const percent = percentage[i] / 100;
 		const temp = initial[i] * percent;
 		arr.push(temp);
