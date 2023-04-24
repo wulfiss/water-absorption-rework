@@ -1,5 +1,3 @@
-import { sealsNumber } from '../stores/store';
-
 const sealGenerator = () => {
 	const MAX_AMOUNT = 25; //Number of chicken in the test required for senasa
 
@@ -18,7 +16,7 @@ const sealGenerator = () => {
 		arr.push(tmp);
 	}
 
-	sealsNumber.set(arr);
+	return arr;
 };
 
 export { sealGenerator };

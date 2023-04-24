@@ -15,7 +15,7 @@ const initialWeight = (averageWeight: number) => {
 		arr.push(tmp);
 	}
 
-	initialWeights.set(arr);
+	return arr;
 };
 
 export { initialWeight };

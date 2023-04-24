@@ -1,5 +1,3 @@
-import { differences } from '../stores/store';
-
 const difference = (initial: number[], percentage: number[]) => {
 	const arr: number[] = [];
 
@@ -9,7 +7,7 @@ const difference = (initial: number[], percentage: number[]) => {
 		arr.push(temp);
 	}
 
-	differences.set(arr);
+	return arr;
 };
 
 export { difference };

@@ -1,4 +1,3 @@
-import { averageFinal } from '../stores/store';
 //calculate the average of the arr and if is lesser than the userAverage will return true.
 //And update the average store.
 const averageCalculator = (arr: number[], userAverage: number) => {
@@ -6,8 +5,7 @@ const averageCalculator = (arr: number[], userAverage: number) => {
 	const average: number = sumTotal / arr.length;
 
 	if (average < userAverage) {
-		averageFinal.set(average);
-		return true;
+		return average;
 	}
 };
 

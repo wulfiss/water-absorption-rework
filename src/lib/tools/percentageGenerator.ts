@@ -1,6 +1,4 @@
 import { averageCalculator } from './averageCalculator';
-import { percentages } from '../stores/store';
-
 /* calculate the 20 percentages that their average in lesser than the user provide
 and will return them in form of an array but in this case will update the corresponding store. */
 
@@ -30,7 +28,7 @@ const percentageGenerator = (percentage: number) => {
 		n = averageCalculator(arr, percentage); //return true or false
 	}
 
-	percentages.set(arr);
+	return arr;
 };
 
 export { percentageGenerator };

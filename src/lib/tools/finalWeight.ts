@@ -1,5 +1,3 @@
-import { finalWeights } from '../stores/store';
-
 const finalWeight = (initial: number[], difference: number[]) => {
 	const arr: number[] = [];
 
@@ -8,7 +6,7 @@ const finalWeight = (initial: number[], difference: number[]) => {
 		arr.push(temp);
 	}
 
-	finalWeights.set(arr);
+	return arr;
 };
 
 export { finalWeight };
