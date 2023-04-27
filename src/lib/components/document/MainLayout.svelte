@@ -1,10 +1,12 @@
 <script>
 	import TableBody from './TableBody.svelte';
 	import Header from './Header.svelte';
+	import DateTime from './dateTime.svelte';
 </script>
 
 <div id="document">
 	<Header />
+	<DateTime />
 	<TableBody />
 </div>
 
