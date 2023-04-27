@@ -6,7 +6,6 @@
 		finalWeights,
 		differences
 	} from '$lib/stores/store';
-	import { swapContent } from '$lib/tools/swapElements';
 </script>
 
 <div id="main">
@@ -18,57 +17,91 @@
 		<div class="cells">Diferencia(kg)</div>
 		<div class="cells">% Hidratación</div>
 	</div>
-	<div class="tableBody">
-		<div class="childGroup">
-			{#each $sealsNumber as seal, i}
-				<div id="child{i}" class="child">
-					<div>
-						{#if !$sealsNumber[i]}
-							----
-						{:else}
-							{i + 1}
-						{/if}
-					</div>
-					<div>
-						{#if !$sealsNumber[i]}
-							----
-						{:else}
-							{seal.toFixed()}
-						{/if}
-					</div>
-					<div>
-						{#if !$initialWeights[i]}
-							----
-						{:else}
-							{$initialWeights[i].toFixed(3)}
-						{/if}
-					</div>
-					<div>
-						{#if !$finalWeights[i]}
-							----
-						{:else}
-							{$finalWeights[i].toFixed(3)}
-						{/if}
-					</div>
-					<div>
-						{#if !$differences[i]}
-							----
-						{:else}
-							{$differences[i].toFixed(3)}
-						{/if}
-					</div>
-					<div>
-						{#if !$percentages[i]}
-							----
-						{:else}
-							{$percentages[i].toFixed(2)}
-						{/if}
-					</div>
+	<div class="body">
+		{#each $sealsNumber as seal, i}
+			<div id="child{i}" class="child">
+				<div>
+					{#if !$sealsNumber[i]}
+						----
+					{:else}
+						{i + 1}
+					{/if}
 				</div>
-			{/each}
-		</div>
+				<div>
+					{#if !$sealsNumber[i]}
+						----
+					{:else}
+						{seal.toFixed()}
+					{/if}
+				</div>
+				<div>
+					{#if !$initialWeights[i]}
+						----
+					{:else}
+						{$initialWeights[i].toFixed(3)}
+					{/if}
+				</div>
+				<div>
+					{#if !$finalWeights[i]}
+						----
+					{:else}
+						{$finalWeights[i].toFixed(3)}
+					{/if}
+				</div>
+				<div>
+					{#if !$differences[i]}
+						----
+					{:else}
+						{$differences[i].toFixed(3)}
+					{/if}
+				</div>
+				<div>
+					{#if !$percentages[i]}
+						----
+					{:else}
+						{$percentages[i].toFixed(2)}
+					{/if}
+				</div>
+			</div>
+		{/each}
 	</div>
 </div>
 
 <style lang="scss">
+	%childFormat {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		text-align: center;
+	}
+
+	$border: 1px solid black;
+
+	div#main {
+		width: 648px;
+		border: $border;
+	}
+
+	div#header {
+		@extend %childFormat;
+		font-weight: bold;
+
+		div:not(:last-child) {
+			border-right: $border;
+		}
+	}
+
+	div.body {
+		div.child {
+			@extend %childFormat;
+		}
+
+		div.child {
+			div {
+				border-top: $border;
+			}
+			div:not(:last-child) {
+				border-right: $border;
+			}
+		}
+	}
 </style>
