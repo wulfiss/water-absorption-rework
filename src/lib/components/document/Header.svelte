@@ -29,9 +29,7 @@
 </div>
 
 <style lang="scss">
-	:root {
-		--border: 1px solid black;
-	}
+	$border: 1px solid black;
 
 	div#mainHeader {
 		display: grid;
@@ -47,7 +45,7 @@
 		grid-column-end: 5;
 		display: grid;
 		grid-template-rows: repeat(4, 1fr);
-		border: var(--border);
+		border: $border;
 
 		#up {
 			grid-row-start: 1;
@@ -66,7 +64,7 @@
 		#down {
 			display: grid;
 			justify-content: center;
-			border-top: var(--border);
+			border-top: $border;
 		}
 
 		div#up:nth-child(1),
@@ -80,7 +78,7 @@
 		align-items: center;
 		justify-items: center;
 		padding-bottom: 3px;
-		border: var(--border);
+		border: $border;
 		border-right: 0;
 
 		img {
@@ -99,7 +97,7 @@
 		grid-template-rows: repeat(4, 1fr);
 		padding: 5px;
 		align-items: center;
-		border: var(--border);
+		border: $border;
 		border-left: 0;
 	}
 </style>
