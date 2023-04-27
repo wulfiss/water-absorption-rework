@@ -1,5 +1,4 @@
 <script>
-	import '$lib/normalize.css';
 	import { textStore } from '$lib/stores/textStore';
 	import logouaa from '$lib/images/logouaa.jpg';
 	import logoenercop from '$lib/images/logoenercop.jpg';
