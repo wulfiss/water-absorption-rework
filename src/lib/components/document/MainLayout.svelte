@@ -2,6 +2,7 @@
 	import TableBody from './TableBody.svelte';
 	import Header from './Header.svelte';
 	import DateTime from './dateTime.svelte';
+	import Average from './average.svelte';
 </script>
 
 <div id="document">
