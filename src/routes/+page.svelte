@@ -1,7 +1,8 @@
 <script>
 	import Btn from '$lib/components/Testbtn/btn.svelte';
-	import TableBody from '$lib/components/document/TableBody.svelte';
+	import MainLayout from '$lib/components/document/MainLayout.svelte';
 </script>
 
 <Btn />
-<TableBody />
+
+<MainLayout />
