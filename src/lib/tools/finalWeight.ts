@@ -1,10 +1,5 @@
 const finalWeight = (initial: number[], difference: number[]) => {
-	const arr: number[] = [];
-
-	for (let i = 0; i < difference.length; i += 1) {
-		const temp = parseFloat((initial[i] + difference[i]).toFixed(3));
-		arr.push(temp);
-	}
+	const arr = difference.map((el, i) => el + initial[i]);
 
 	return arr;
 };
