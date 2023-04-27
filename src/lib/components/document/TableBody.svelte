@@ -31,25 +31,25 @@
 					<div class="cells">{seal.toFixed()}</div>
 
 					{#if !$initialWeights[i]}
-						<div class="cells">{'----'}</div>
+						<div class="cells">----</div>
 					{:else}
 						<div class="cells">{$initialWeights[i].toFixed(3)}</div>
 					{/if}
 
 					{#if !$finalWeights[i]}
-						<div class="cells">{'----'}</div>
+						<div class="cells">----</div>
 					{:else}
 						<div class="cells">{$finalWeights[i].toFixed(3)}</div>
 					{/if}
 
 					{#if !$differences[i]}
-						<div class="cells">{'----'}</div>
+						<div class="cells">----</div>
 					{:else}
 						<div class="cells">{$differences[i].toFixed(3)}</div>
 					{/if}
 
 					{#if !$percentages[i]}
-						<div class="cells">{'----'}</div>
+						<div class="cells">----</div>
 					{:else}
 						<div class="cells">{$percentages[i].toFixed(3)}</div>
 					{/if}
@@ -59,15 +59,16 @@
 	</div>
 	<div>
 		{#if !$averageFinal}
-			<div>average: {'----'}</div>
+			<div>average: ----</div>
 		{:else}
 			<div>average: {$averageFinal.toFixed(2)}</div>
 		{/if}
 	</div>
 </div>
+
 <button on:click={() => swapContent()}>click</button>
 
-<style>
+<style lang="scss">
 	div.tableBody {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
