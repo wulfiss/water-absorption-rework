@@ -1,20 +1,32 @@
 <script>
-	import TableBody from '$lib/components/document/TableBody.svelte';
+	import TableBody from './TableBody.svelte';
+	import Header from './Header.svelte';
 </script>
 
-<TableBody />
+<div id="document">
+	<Header />
+	<TableBody />
+</div>
 
 <style lang="scss">
-	@page {
-		size: A4;
-		margin: 0;
+	* {
+		box-sizing: content-box; /* 1 */
+		height: 0; /* 1 */
+		overflow: visible; /* 2 */
+	}
+
+	#document {
+		font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS';
+		width: 210mm;
+		height: 297mm;
+		margin: 30mm 45mm 30mm 45mm;
 	}
 
 	@media print {
-		html,
-		body {
+		#document {
 			width: 210mm;
 			height: 297mm;
+			margin: 30mm 45mm 30mm 45mm;
 		}
 	}
 </style>
