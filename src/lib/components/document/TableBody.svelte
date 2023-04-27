@@ -4,8 +4,7 @@
 		percentages,
 		initialWeights,
 		finalWeights,
-		differences,
-		averageFinal
+		differences
 	} from '$lib/stores/store';
 	import { swapContent } from '$lib/tools/swapElements';
 </script>
@@ -57,16 +56,7 @@
 			{/each}
 		</div>
 	</div>
-	<div>
-		{#if !$averageFinal}
-			<div>average: ----</div>
-		{:else}
-			<div>average: {$averageFinal.toFixed(2)}</div>
-		{/if}
-	</div>
 </div>
-
-<button on:click={() => swapContent()}>click</button>
 
 <style lang="scss">
 	div.tableBody {
