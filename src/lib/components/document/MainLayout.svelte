@@ -9,6 +9,7 @@
 	<Header />
 	<DateTime />
 	<TableBody />
+	<Average />
 </div>
 
 <style lang="scss">
