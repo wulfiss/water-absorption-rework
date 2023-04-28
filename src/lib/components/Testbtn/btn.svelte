@@ -27,15 +27,6 @@
 		averageFinal.set(averageCalculator($percentages, userPercentage));
 		differences.set(difference($initialWeights, $percentages));
 		finalWeights.set(finalWeight($initialWeights, $differences));
-
-		console.log(
-			$sealsNumber,
-			$percentages,
-			$initialWeights,
-			$finalWeights,
-			$differences,
-			$averageFinal
-		);
 	};
 </script>
 
