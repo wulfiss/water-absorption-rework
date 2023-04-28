@@ -3,6 +3,8 @@
 	import Header from './Header.svelte';
 	import DateTime from './dateTime.svelte';
 	import Average from './average.svelte';
+	import TextBox from './textBox.svelte';
+	import Signatures from './signatures.svelte';
 </script>
 
 <div id="document">
@@ -10,6 +12,8 @@
 	<DateTime />
 	<TableBody />
 	<Average />
+	<TextBox />
+	<Signatures />
 </div>
 
 <style lang="scss">
