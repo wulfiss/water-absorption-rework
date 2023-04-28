@@ -1,10 +1,10 @@
 <script>
-	import TableBody from './TableBody.svelte';
-	import Header from './Header.svelte';
-	import DateTime from './dateTime.svelte';
-	import Average from './average.svelte';
-	import TextBox from './textBox.svelte';
-	import Signatures from './signatures.svelte';
+	import TableBody from './components/TableBody.svelte';
+	import Header from './components/Header.svelte';
+	import DateTime from './components/dateTime.svelte';
+	import Average from './components/average.svelte';
+	import TextBox from './components/textBox.svelte';
+	import Signatures from './components/signatures.svelte';
 </script>
 
 <div id="document">
