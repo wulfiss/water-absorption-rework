@@ -2,8 +2,8 @@
 
 <style lang="scss">
 	div#textBox {
-		height: 95px;
-		width: 648px;
+		height: 110px;
+		width: 755px;
 		border: 1px solid black;
 	}
 </style>

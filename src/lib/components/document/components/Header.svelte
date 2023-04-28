@@ -33,10 +33,10 @@
 
 	div#mainHeader {
 		display: grid;
-		height: 80px;
-		width: 648px;
+		height: 90px;
+		width: 755px;
 		grid-template-columns: repeat(5, 1fr);
-		font-size: 12px;
+		font-size: 15px;
 		font-weight: bold;
 	}
 

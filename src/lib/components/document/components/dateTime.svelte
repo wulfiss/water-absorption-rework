@@ -9,10 +9,10 @@
 <style lang="scss">
 	div#main {
 		display: grid;
-		height: 80px;
+		height: 100px;
 		grid-template-columns: repeat(2, 1fr);
 		align-content: center;
 		font-weight: bold;
-		font-size: 13px;
+		font-size: 15px;
 	}
 </style>

@@ -6,8 +6,8 @@
 <style lang="scss">
 	div#signature {
 		display: grid;
-		height: 80px;
-		width: 650px;
+		height: 120px;
+		width: 755px;
 		grid-template-columns: repeat(2, 1fr);
 		align-content: center;
 		font-size: 15px;

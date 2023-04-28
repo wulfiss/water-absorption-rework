@@ -40,3 +40,11 @@
 </script>
 
 <button on:click={() => handleCall(25, 2.5, 20, 4.5)}>click</button>
+
+<style>
+	@media print {
+		button {
+			display: none;
+		}
+	}
+</style>

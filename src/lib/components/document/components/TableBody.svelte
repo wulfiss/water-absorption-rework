@@ -77,7 +77,8 @@
 	$border: 1px solid black;
 
 	div#main {
-		width: 648px;
+		font-size: 16px;
+		width: 755px;
 		border: $border;
 	}
 
@@ -91,6 +92,9 @@
 	}
 
 	div.body {
+		height: 600px;
+		display: grid;
+		grid-template-rows: auto;
 		div.child {
 			@extend %childFormat;
 		}

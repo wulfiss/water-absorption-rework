@@ -11,8 +11,8 @@
 
 <style lang="scss">
 	div#main {
-		height: 80px;
-		width: 648px;
+		height: 100px;
+		width: 755px;
 		font-weight: bold;
 		font-size: 17px;
 		display: grid;

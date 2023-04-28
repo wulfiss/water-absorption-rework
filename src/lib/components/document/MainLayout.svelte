@@ -27,14 +27,14 @@
 		font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS';
 		width: 210mm;
 		height: 297mm;
-		margin: 30mm 45mm 30mm 45mm;
+		margin: 45px 35px;
 	}
 
 	@media print {
 		#document {
 			width: 210mm;
 			height: 297mm;
-			margin: 30mm 45mm 30mm 45mm;
+			margin: 45px 35px;
 		}
 	}
 </style>
