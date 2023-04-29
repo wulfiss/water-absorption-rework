@@ -16,6 +16,11 @@
 	import { percentageGenerator } from '$lib/tools/percentageGenerator';
 	import { sealGenerator } from '$lib/tools/sealsGenerators';
 
+	export let userProbes: number;
+	export let userAverage: number;
+	export let userTotal: number;
+	export let userUserPercentage: number;
+
 	const handleCall = (
 		totalProbes: number,
 		averageWeight: number,
@@ -31,6 +36,9 @@
 	};
 </script>
 
-<Button on:click={() => handleCall(25, 2.5, 20, 4.5)} variant="raised">
+<Button
+	on:click={() => handleCall(userProbes, userAverage, userTotal, userUserPercentage)}
+	variant="raised"
+>
 	<Label>Generar</Label>
 </Button>

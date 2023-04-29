@@ -14,10 +14,12 @@
 	let checked2 = false;
 	let clicked = 0;
 
+	let probes = 25;
+	let userTotalProbes = 20;
 	let date = '';
 	let time = '';
-	let average = 0;
-	let customPercent = 0;
+	let average = 2.5;
+	let customPercent = 4.5;
 
 	let value = '';
 	let valueA = '';
@@ -138,7 +140,12 @@
 						input$resizable={false}
 					/>
 				</div>
-				<Btn />
+				<Btn
+					userProbes={probes}
+					userAverage={average}
+					userTotal={userTotalProbes}
+					userUserPercentage={customPercent}
+				/>
 			</div>
 		</Content>
 	</Paper>
