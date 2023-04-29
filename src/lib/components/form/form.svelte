@@ -1,6 +1,6 @@
 <script>
 	import Btn from '../Testbtn/btn.svelte';
-	import Button, { Label } from '@smui/button';
+
 	import HelperText from '@smui/textfield/helper-text';
 	import Textfield from '@smui/textfield';
 	import Icon from '@smui/textfield/icon';
@@ -138,9 +138,7 @@
 						input$resizable={false}
 					/>
 				</div>
-				<Button on:click={() => clicked++} variant="raised">
-					<Label>Raised</Label>
-				</Button>
+				<Btn />
 			</div>
 		</Content>
 	</Paper>
