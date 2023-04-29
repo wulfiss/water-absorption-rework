@@ -6,10 +6,10 @@
 <style lang="scss">
 	div#signature {
 		display: grid;
-		height: 120px;
+		height: 110px;
 		width: 755px;
 		grid-template-columns: repeat(2, 1fr);
 		align-content: center;
-		font-size: 15px;
+		font-size: 16px;
 	}
 </style>

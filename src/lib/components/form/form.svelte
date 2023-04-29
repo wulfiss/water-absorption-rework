@@ -182,4 +182,10 @@
 	.radioSpan {
 		margin-top: -10px;
 	}
+
+	@media print {
+		div#formDiv {
+			display: none;
+		}
+	}
 </style>

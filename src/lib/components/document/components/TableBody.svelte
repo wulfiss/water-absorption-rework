@@ -95,6 +95,7 @@
 		height: 600px;
 		display: grid;
 		grid-template-rows: auto;
+		font-size: 18px;
 		div.child {
 			@extend %childFormat;
 		}
@@ -106,6 +107,12 @@
 			div:not(:last-child) {
 				border-right: $border;
 			}
+		}
+	}
+
+	@media print {
+		div.body {
+			height: 700px;
 		}
 	}
 </style>

@@ -28,7 +28,7 @@
 
 		div {
 			border: 1px solid black;
-			height: 40px;
+			height: 50px;
 		}
 
 		:last-child {

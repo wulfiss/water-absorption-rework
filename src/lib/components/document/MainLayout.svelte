@@ -67,8 +67,17 @@
 	@media print {
 		#document {
 			width: 210mm;
-			height: 297mm;
+			height: 320mm;
 			margin: 45px 35px;
+		}
+
+		#outer,
+		div#pageComplete {
+			display: block;
+			height: auto;
+		}
+		div#btn {
+			display: none;
 		}
 	}
 </style>
