@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button, { Label } from '@smui/button';
 	import {
 		sealsNumber,
 		percentages,
@@ -30,12 +31,6 @@
 	};
 </script>
 
-<button on:click={() => handleCall(25, 2.5, 20, 4.5)}>click</button>
-
-<style>
-	@media print {
-		button {
-			display: none;
-		}
-	}
-</style>
+<Button on:click={() => handleCall(25, 2.5, 20, 4.5)} variant="raised">
+	<Label>Generar</Label>
+</Button>
