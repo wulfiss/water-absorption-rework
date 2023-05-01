@@ -27,35 +27,35 @@
 						{i + 1}
 					{/if}
 				</div>
-				<div>
+				<div id="sealChild{i}">
 					{#if !$sealsNumber[i]}
 						----
 					{:else}
 						{seal.toFixed()}
 					{/if}
 				</div>
-				<div>
+				<div id="initialChild{i}">
 					{#if !$initialWeights[i]}
 						----
 					{:else}
 						{$initialWeights[i].toFixed(3)}
 					{/if}
 				</div>
-				<div>
+				<div id="finalChild{i}">
 					{#if !$finalWeights[i]}
 						----
 					{:else}
 						{$finalWeights[i].toFixed(3)}
 					{/if}
 				</div>
-				<div>
+				<div id="diffChild{i}">
 					{#if !$differences[i]}
 						----
 					{:else}
 						{$differences[i].toFixed(3)}
 					{/if}
 				</div>
-				<div>
+				<div id="percChild{i}">
 					{#if !$percentages[i]}
 						----
 					{:else}

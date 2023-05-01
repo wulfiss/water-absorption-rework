@@ -11,34 +11,45 @@
 	import TopAppBar, { Row, Section, Title } from '@smui/top-app-bar';
 
 	let checked = false;
-	let checked2 = false;
-	let clicked = 0;
 
+	let disabled = true;
 	let probes = 25;
 	let userTotalProbes = 20;
 	let date = '';
 	let time = '';
 	let average = 2.5;
 	let customPercent = 4.5;
+	let percentage = 0;
 
 	let value = '';
-	let valueA = '';
-	let valueB = '';
+
 	let options = [
 		{
 			name: 'SENASA (8%)',
+			value: 8,
 			disabled: false
 		},
 		{
 			name: 'Union Europea (4.5%)',
+			value: 4.5,
 			disabled: false
 		},
 		{
 			name: 'Otro',
+			value: 0,
 			disabled: false
 		}
 	];
-	let selected = 'Union Europea (4.5%)';
+
+	let selected = 4.5;
+
+	$: if (selected === 0) {
+		disabled = false;
+		percentage = customPercent;
+	} else {
+		disabled = true;
+		percentage = selected;
+	}
 </script>
 
 <div id="formDiv">
@@ -88,7 +99,7 @@
 						<Radio
 							class="radioChild"
 							bind:group={selected}
-							value={options[0].name}
+							value={options[0].value}
 							disabled={options[0].disabled}
 						/>
 						<span class="radioSpan">
@@ -97,7 +108,7 @@
 						<Radio
 							class="radioChild"
 							bind:group={selected}
-							value={options[1].name}
+							value={options[1].value}
 							disabled={options[1].disabled}
 						/>
 						<span class="radioSpan">
@@ -106,7 +117,7 @@
 						<Radio
 							class="radioChild"
 							bind:group={selected}
-							value={options[2].name}
+							value={options[2].value}
 							disabled={options[2].disabled}
 						/>
 						<span class="spanLast">
@@ -118,6 +129,7 @@
 								input$pattern="\d+"
 								type="number"
 								style="width: 70px;"
+								{disabled}
 							>
 								<HelperText slot="helper">ej. 4.3</HelperText>
 							</Textfield>
@@ -126,7 +138,7 @@
 				</div>
 				<div id="seals">
 					<FormField align="end">
-						<Checkbox bind:checked={checked2} />
+						<Checkbox bind:checked />
 						<span slot="label">Agregar precintos perdidos</span>
 					</FormField>
 				</div>
@@ -144,7 +156,8 @@
 					userProbes={probes}
 					userAverage={average}
 					userTotal={userTotalProbes}
-					userUserPercentage={customPercent}
+					userUserPercentage={percentage}
+					swap={checked}
 				/>
 			</div>
 		</Content>
