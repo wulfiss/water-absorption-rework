@@ -10,5 +10,16 @@ const percentages = Class();
 const initialWeights = Class();
 const finalWeights = Class();
 const differences = Class();
+const time = writable({ initial: '', final: '' });
+const date: Writable<string> = writable('');
 
-export { sealsNumber, percentages, initialWeights, finalWeights, differences, averageFinal };
+export {
+	sealsNumber,
+	percentages,
+	initialWeights,
+	finalWeights,
+	differences,
+	averageFinal,
+	time,
+	date
+};

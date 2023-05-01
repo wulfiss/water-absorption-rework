@@ -1,8 +1,13 @@
+<script>
+	import { time } from '$lib/stores/store';
+	import { date } from '$lib/stores/store';
+</script>
+
 <div id="main">
-	<div id="date">Fecha: 27-04-20023</div>
+	<div id="date">Fecha: {$date}</div>
 	<div id="time">
-		<div>Hora de inicio: 04:20 HS</div>
-		<div>Hora de finalización: 05:08 HS</div>
+		<div>Hora de inicio: {$time.initial} HS</div>
+		<div>Hora de finalización: {$time.final} HS</div>
 	</div>
 </div>
 

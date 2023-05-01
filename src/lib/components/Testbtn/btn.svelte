@@ -6,7 +6,9 @@
 		initialWeights,
 		finalWeights,
 		differences,
-		averageFinal
+		averageFinal,
+		time,
+		date
 	} from '$lib/stores/store';
 
 	import { averageCalculator } from '$lib/tools/averageCalculator';
@@ -16,20 +18,29 @@
 	import { percentageGenerator } from '$lib/tools/percentageGenerator';
 	import { sealGenerator } from '$lib/tools/sealsGenerators';
 	import { swapContent } from '$lib/tools/swapElements';
+	import { timeGenerator } from '$lib/tools/timeGenerator';
+	import { reverseDate } from '$lib/tools/reverseDate';
 
 	export let userProbes: number;
 	export let userAverage: number;
 	export let userTotal: number;
 	export let userUserPercentage: number;
 	export let swap: boolean;
+	export let userDate: string;
+	export let timeUser: string;
 
 	const handleCall = async (
 		totalProbes: number,
 		averageWeight: number,
 		totalFinal: number,
 		userPercentage: number,
-		swap: boolean
+		swap: boolean,
+		timeUser: string,
+		userDate: string
 	) => {
+		console.log(timeUser, 'btn');
+		time.set(timeGenerator(timeUser));
+		date.set(reverseDate(userDate));
 		sealsNumber.set(sealGenerator(totalProbes));
 		percentages.set(percentageGenerator(userPercentage, totalFinal));
 		initialWeights.set(initialWeight(averageWeight, totalProbes));
@@ -46,7 +57,8 @@
 </script>
 
 <Button
-	on:click={() => handleCall(userProbes, userAverage, userTotal, userUserPercentage, swap)}
+	on:click={() =>
+		handleCall(userProbes, userAverage, userTotal, userUserPercentage, swap, timeUser, userDate)}
 	variant="raised"
 >
 	<Label>Generar</Label>

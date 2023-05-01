@@ -15,8 +15,8 @@
 	let disabled = true;
 	let probes = 25;
 	let userTotalProbes = 20;
-	let date = '';
-	let time = '';
+	let userDate = '';
+	let timeUser = '09:00';
 	let average = 2.5;
 	let customPercent = 4.5;
 	let percentage = 0;
@@ -50,6 +50,8 @@
 		disabled = true;
 		percentage = selected;
 	}
+
+	$: console.log(userDate);
 </script>
 
 <div id="formDiv">
@@ -68,12 +70,17 @@
 			<div id="content">
 				<div id="first">
 					<div>
-						<Textfield bind:value={date} label="Fecha" type="date" style="width: 131px;">
+						<Textfield bind:value={userDate} label="Fecha" type="date" style="width: 131px;">
 							<Icon class="material-icons" slot="leadingIcon">event</Icon>
 						</Textfield>
 					</div>
 					<div>
-						<Textfield bind:value={time} label="Hora de inicio" type="time" style="width: 131px;">
+						<Textfield
+							bind:value={timeUser}
+							label="Hora de inicio"
+							type="time"
+							style="width: 131px;"
+						>
 							<Icon class="material-icons" slot="leadingIcon">alarm_on</Icon>
 						</Textfield>
 					</div>
@@ -158,6 +165,8 @@
 					userTotal={userTotalProbes}
 					userUserPercentage={percentage}
 					swap={checked}
+					{timeUser}
+					{userDate}
 				/>
 			</div>
 		</Content>
