@@ -15,17 +15,20 @@
 	import { initialWeight } from '$lib/tools/initialWeight';
 	import { percentageGenerator } from '$lib/tools/percentageGenerator';
 	import { sealGenerator } from '$lib/tools/sealsGenerators';
+	import { swapContent } from '$lib/tools/swapElements';
 
 	export let userProbes: number;
 	export let userAverage: number;
 	export let userTotal: number;
 	export let userUserPercentage: number;
+	export let swap: boolean;
 
-	const handleCall = (
+	const handleCall = async (
 		totalProbes: number,
 		averageWeight: number,
 		totalFinal: number,
-		userPercentage: number
+		userPercentage: number,
+		swap: boolean
 	) => {
 		sealsNumber.set(sealGenerator(totalProbes));
 		percentages.set(percentageGenerator(userPercentage, totalFinal));
@@ -33,11 +36,17 @@
 		averageFinal.set(averageCalculator($percentages, userPercentage));
 		differences.set(difference($initialWeights, $percentages));
 		finalWeights.set(finalWeight($initialWeights, $differences));
+
+		if (swap) {
+			setTimeout(() => {
+				swapContent();
+			}, 500);
+		}
 	};
 </script>
 
 <Button
-	on:click={() => handleCall(userProbes, userAverage, userTotal, userUserPercentage)}
+	on:click={() => handleCall(userProbes, userAverage, userTotal, userUserPercentage, swap)}
 	variant="raised"
 >
 	<Label>Generar</Label>
