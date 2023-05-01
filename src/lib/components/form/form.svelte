@@ -22,8 +22,6 @@
 	let percentage = 0;
 	let userObs = '';
 
-	let value = '';
-
 	let options = [
 		{
 			name: 'SENASA (8%)',
@@ -51,8 +49,6 @@
 		disabled = true;
 		percentage = selected;
 	}
-
-	$: console.log(userDate);
 </script>
 
 <div id="formDiv">
