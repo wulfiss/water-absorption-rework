@@ -5,14 +5,12 @@
 	import Average from './components/average.svelte';
 	import TextBox from './components/textBox.svelte';
 	import Signatures from './components/signatures.svelte';
-	import Button, { Label } from '@smui/button';
+	import PrintBtn from '../Testbtn/printBtn.svelte';
 </script>
 
 <div id="pageComplete">
 	<div id="btn">
-		<Button variant="raised">
-			<Label>Imprimir</Label>
-		</Button>
+		<PrintBtn />
 	</div>
 	<div id="outer">
 		<div id="document">
