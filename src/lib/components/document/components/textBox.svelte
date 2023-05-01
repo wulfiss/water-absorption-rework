@@ -1,4 +1,10 @@
-<textarea name="textBox" id="textBox" cols="30" rows="10" readonly>Observaciones: </textarea>
+<script lang="ts">
+	import { observation } from '$lib/stores/store';
+</script>
+
+<textarea name="textBox" id="textBox" cols="30" rows="10" readonly
+	>Observaciones: {$observation}</textarea
+>
 
 <style lang="scss">
 	#textBox {

@@ -12,6 +12,8 @@ const finalWeights = Class();
 const differences = Class();
 const time = writable({ initial: '', final: '' });
 const date: Writable<string> = writable('');
+const observation: Writable<string> = writable('');
+const display: Writable<number> = writable(0);
 
 export {
 	sealsNumber,
@@ -21,5 +23,7 @@ export {
 	differences,
 	averageFinal,
 	time,
-	date
+	date,
+	observation,
+	display
 };

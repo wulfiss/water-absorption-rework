@@ -20,6 +20,7 @@
 	let average = 2.5;
 	let customPercent = 4.5;
 	let percentage = 0;
+	let userObs = '';
 
 	let value = '';
 
@@ -152,7 +153,7 @@
 				<div class="margins">
 					<Textfield
 						textarea
-						bind:value
+						bind:value={userObs}
 						label="Observaciones"
 						input$rows={4}
 						input$cols={50}
@@ -167,6 +168,7 @@
 					swap={checked}
 					{timeUser}
 					{userDate}
+					{userObs}
 				/>
 			</div>
 		</Content>
