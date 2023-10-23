@@ -52,13 +52,15 @@
 		percentage = selected;
 	}
 
-	let valueA: Fruit | null = null;
-	type Fruit = { id: number; label: string; probes: number; userTotalProbes: number };
-	let fruits: Fruit[] = [
+	let valueA: Opts | null = { id: 1, label: 'Union Europea 4.5%', probes: 25, userTotalProbes: 20 };
+	type Opts = { id: number; label: string; probes: number; userTotalProbes: number };
+	let opts: Opts[] = [
 		{ id: 1, label: 'Union Europea 4.5%', probes: 25, userTotalProbes: 20 },
 		{ id: 2, label: 'Senasa 8%', probes: 25, userTotalProbes: 20 },
 		{ id: 3, label: 'Piu Gusto 10%', probes: 25, userTotalProbes: 10 }
 	];
+
+	$: console.log(valueA.label)
 </script>
 
 <div id="formDiv">
@@ -109,10 +111,10 @@
 				</div>
 				<div class="radio-demo">
 					<p>Limite de Hidratación(%)</p>
-					<Select key={(fruit) => `${fruit ? fruit.id : ''}`} bind:value={valueA} label="Objects">
-						<Option value={null} />
-						{#each fruits as fruit (fruit.label)}
-							<Option value={fruit}>{fruit.label}</Option>
+					<Select key={(opt) => `${opt ? opt.id : ''}`} bind:value={valueA} label="Objects">
+						<Option value={valueA} />
+						{#each opts as opt (opt.label)}
+							<Option value={opt}>{opt.label}</Option>
 						{/each}
 					</Select>
 					<FormField class="radio">
