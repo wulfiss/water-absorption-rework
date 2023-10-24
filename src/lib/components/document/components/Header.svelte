@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { textStore } from '$lib/stores/textStore';
-	import { brand } from '$lib/stores/store';
+	import { brandID } from '$lib/stores/store';
 	import logouaa from '$lib/images/logouaa.jpg';
 	import logoenercop from '$lib/images/logoenercop.jpg';
 	import logoPiugusto from '$lib/images/logoPiugusto.jpg';
@@ -30,25 +30,25 @@
 
 <div id="mainHeader">
 	<div id="left" class="childs">
-		<img src={imgArr[$brand].brandLogo} alt="Brand logo" srcset="" />
-		<div>{$textStore['enercop'].brandTitle}</div>
-		<div>{$textStore['enercop'].brandSubTitle}</div>
+		<img src={imgArr[$brandID].brandLogo} alt="Brand logo" srcset="" />
+		<!-- 		<div>{$textStore[$brandID].brandTitle}</div> -->
+		<div>{$textStore[$brandID].brandSubTitle}</div>
 	</div>
 
 	<div id="center">
 		<div id="up">
-			<div>{$textStore['enercop'].officialName}</div>
-			<div>{$textStore['enercop'].companyName}</div>
-			<img src={imgArr[$brand].companyLogo} alt="company logo" srcset="" />
+			<div>{$textStore[$brandID].officialName}</div>
+			<div>{$textStore[$brandID].companyName}</div>
+			<img src={imgArr[$brandID].companyLogo} alt="company logo" srcset="" />
 		</div>
-		<div id="down">{$textStore['enercop'].documentTitle}</div>
+		<div id="down">{$textStore[$brandID].documentTitle}</div>
 	</div>
 
 	<div id="right" class="childs">
-		<div>{$textStore['enercop'].documentCode}</div>
-		<div>Vigencia: {$textStore['enercop'].documentValidity}</div>
-		<div>Revisión: {$textStore['enercop'].documentRevision}</div>
-		<div>Página {$textStore['enercop'].documentPages}</div>
+		<div>{$textStore[$brandID].documentCode}</div>
+		<div>Vigencia: {$textStore[$brandID].documentValidity}</div>
+		<div>Revisión: {$textStore[$brandID].documentRevision}</div>
+		<div>Página {$textStore[$brandID].documentPages}</div>
 	</div>
 </div>
 
