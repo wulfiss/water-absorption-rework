@@ -14,6 +14,7 @@ const time = writable({ initial: '', final: '' });
 const date: Writable<string> = writable('');
 const observation: Writable<string> = writable('');
 const display: Writable<number> = writable(0);
+const brand: Writable<number> = writable(0);
 
 export {
 	sealsNumber,
@@ -25,5 +26,6 @@ export {
 	time,
 	date,
 	observation,
-	display
+	display,
+	brand
 };
