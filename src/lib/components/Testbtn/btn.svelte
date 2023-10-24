@@ -10,7 +10,8 @@
 		time,
 		date,
 		observation,
-		display
+		display,
+		brandID
 	} from '$lib/stores/store';
 
 	import { averageCalculator } from '$lib/tools/averageCalculator';
@@ -31,6 +32,7 @@
 	export let userDate: string;
 	export let timeUser: string;
 	export let userObs: string;
+	export let brandIdOp: number;
 
 	const handleCall = async (
 		totalProbes: number,
@@ -40,7 +42,8 @@
 		swap: boolean,
 		timeUser: string,
 		userDate: string,
-		userObs: string
+		userObs: string,
+		brandIdOp: number
 	) => {
 		display.set(1);
 		time.set(timeGenerator(timeUser));
@@ -52,6 +55,7 @@
 		differences.set(difference($initialWeights, $percentages));
 		finalWeights.set(finalWeight($initialWeights, $differences));
 		observation.set(userObs);
+		brandID.set(brandIdOp);
 
 		if (swap) {
 			setTimeout(() => {
@@ -71,7 +75,8 @@
 			swap,
 			timeUser,
 			userDate,
-			userObs
+			userObs,
+			brandIdOp
 		)}
 	variant="raised"
 >

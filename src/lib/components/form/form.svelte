@@ -23,6 +23,7 @@
 	let customPercent = 4.5;
 	let percentage = 0;
 	let userObs = '';
+	let brandIdOp = 0;
 
 	let options = [
 		{
@@ -52,15 +53,20 @@
 		percentage = selected;
 	}
 
-	let valueA: Opts | null = { id: 1, label: 'Union Europea 4.5%', probes: 25, userTotalProbes: 20 };
-	type Opts = { id: number; label: string; probes: number; userTotalProbes: number };
+	let brandIdOpSel: Opts = {
+		id: 0,
+		label: 'Union Europea 4.5%',
+		code: 'enercopEU',
+		probes: 25,
+		userTotalProbes: 20
+	};
+	type Opts = { id: number; label: string; code: string; probes: number; userTotalProbes: number };
 	let opts: Opts[] = [
-		{ id: 1, label: 'Union Europea 4.5%', probes: 25, userTotalProbes: 20 },
-		{ id: 2, label: 'Senasa 8%', probes: 25, userTotalProbes: 20 },
-		{ id: 3, label: 'Piu Gusto 10%', probes: 25, userTotalProbes: 10 }
+		{ id: 0, label: 'Union Europea 4.5%', code: 'enercopEU', probes: 25, userTotalProbes: 20 },
+		{ id: 1, label: 'SENASA 8%', code: 'enercopArg', probes: 25, userTotalProbes: 20 },
+		{ id: 2, label: 'Piu Gusto 10%', code: 'piugusto', probes: 25, userTotalProbes: 10 }
 	];
-
-	$: console.log(valueA.label)
+	$: brandIdOp = brandIdOpSel.id;
 </script>
 
 <div id="formDiv">
@@ -111,8 +117,8 @@
 				</div>
 				<div class="radio-demo">
 					<p>Limite de Hidratación(%)</p>
-					<Select key={(opt) => `${opt ? opt.id : ''}`} bind:value={valueA} label="Objects">
-						<Option value={valueA} />
+					<Select key={(opt) => `${opt ? opt.id : ''}`} bind:value={brandIdOpSel} label="Objects">
+						<Option value={brandIdOpSel} />
 						{#each opts as opt (opt.label)}
 							<Option value={opt}>{opt.label}</Option>
 						{/each}
@@ -183,6 +189,7 @@
 					{timeUser}
 					{userDate}
 					{userObs}
+					{brandIdOp}
 				/>
 			</div>
 		</Content>
