@@ -1,19 +1,36 @@
-<script>
+<script lang="ts">
 	import { textStore } from '$lib/stores/textStore';
+	import { brand } from '$lib/stores/store';
 	import logouaa from '$lib/images/logouaa.jpg';
 	import logoenercop from '$lib/images/logoenercop.jpg';
+	import logoPiugusto from '$lib/images/logoPiugusto.jpg';
 
-	const imgArr = {
+	interface ImgArr {
+		[brandID: number]: {
+			companyLogo: string;
+			brandLogo: string;
+		};
+	}
+
+	const imgArr: ImgArr = {
 		0: {
 			companyLogo: logouaa,
 			brandLogo: logoenercop
+		},
+		1: {
+			companyLogo: logouaa,
+			brandLogo: logoenercop
+		},
+		2: {
+			companyLogo: logouaa,
+			brandLogo: logoPiugusto
 		}
 	};
 </script>
 
 <div id="mainHeader">
 	<div id="left" class="childs">
-		<img src={imgArr[0].brandLogo} alt="Brand logo" srcset="" />
+		<img src={imgArr[$brand].brandLogo} alt="Brand logo" srcset="" />
 		<div>{$textStore['enercop'].brandTitle}</div>
 		<div>{$textStore['enercop'].brandSubTitle}</div>
 	</div>
@@ -22,7 +39,7 @@
 		<div id="up">
 			<div>{$textStore['enercop'].officialName}</div>
 			<div>{$textStore['enercop'].companyName}</div>
-			<img src={imgArr[0].companyLogo} alt="company logo" srcset="" />
+			<img src={imgArr[$brand].companyLogo} alt="company logo" srcset="" />
 		</div>
 		<div id="down">{$textStore['enercop'].documentTitle}</div>
 	</div>
