@@ -27,25 +27,25 @@
 
 	let options = [
 		{
-			name: 'SENASA (8%)',
-			value: 8,
-			disabled: false
-		},
-		{
 			name: 'Union Europea (4.5%)',
-			value: 4.5,
+			value: 0,
 			disabled: false
 		},
 		{
-			name: 'Otro',
-			value: 0,
+			name: 'SENASA (8%)',
+			value: 1,
+			disabled: false
+		},
+		{
+			name: 'Piu Gusto (10%)',
+			value: 2,
 			disabled: false
 		}
 	];
 
-	let selected = 4.5;
+	let selectedId = 0;
 
-	$: if (selected === 0) {
+	/* 	$: if (selected === 0) {
 		disabled = false;
 		percentage = customPercent;
 	} else {
@@ -66,7 +66,7 @@
 		{ id: 1, label: 'SENASA 8%', code: 'enercopArg', probes: 25, userTotalProbes: 20 },
 		{ id: 2, label: 'Piu Gusto 10%', code: 'piugusto', probes: 25, userTotalProbes: 10 }
 	];
-	$: brandIdOp = brandIdOpSel.id;
+	$: brandIdOp = brandIdOpSel.id; */
 </script>
 
 <div id="formDiv">
@@ -117,16 +117,16 @@
 				</div>
 				<div class="radio-demo">
 					<p>Limite de Hidratación(%)</p>
-					<Select key={(opt) => `${opt ? opt.id : ''}`} bind:value={brandIdOpSel} label="Objects">
+					<!-- 					<Select key={(opt) => `${opt ? opt.id : ''}`} bind:value={brandIdOpSel} label="Objects">
 						<Option value={brandIdOpSel} />
 						{#each opts as opt (opt.label)}
 							<Option value={opt}>{opt.label}</Option>
 						{/each}
-					</Select>
+					</Select> -->
 					<FormField class="radio">
 						<Radio
 							class="radioChild"
-							bind:group={selected}
+							bind:group={selectedId}
 							value={options[0].value}
 							disabled={options[0].disabled}
 						/>
@@ -135,7 +135,7 @@
 						</span>
 						<Radio
 							class="radioChild"
-							bind:group={selected}
+							bind:group={selectedId}
 							value={options[1].value}
 							disabled={options[1].disabled}
 						/>
@@ -143,6 +143,15 @@
 							{options[1].name}{options[1].disabled ? ' (disabled)' : ''}
 						</span>
 						<Radio
+							class="radioChild"
+							bind:group={selectedId}
+							value={options[2].value}
+							disabled={options[2].disabled}
+						/>
+						<span class="radioSpan">
+							{options[2].name}{options[2].disabled ? ' (disabled)' : ''}
+						</span>
+						<!-- 				<Radio
 							class="radioChild"
 							bind:group={selected}
 							value={options[2].value}
@@ -162,11 +171,12 @@
 								<HelperText slot="helper">ej. 4.3</HelperText>
 							</Textfield>
 						</span>
+						-->
 					</FormField>
 				</div>
 				<div id="seals">
 					<FormField align="end">
-						<Checkbox bind:checked />
+						<Checkbox bind:checked disabled="true" />
 						<span slot="label">Agregar precintos perdidos</span>
 					</FormField>
 				</div>
@@ -189,7 +199,7 @@
 					{timeUser}
 					{userDate}
 					{userObs}
-					{brandIdOp}
+					{selectedId}
 				/>
 			</div>
 		</Content>
