@@ -1,8 +1,6 @@
 <script lang="ts">
 	import Btn from '../Testbtn/btn.svelte';
 
-	import Select, { Option } from '@smui/select';
-
 	import HelperText from '@smui/textfield/helper-text';
 	import Textfield from '@smui/textfield';
 	import Icon from '@smui/textfield/icon';
@@ -20,7 +18,6 @@
 	let userDate = '';
 	let timeUser = '09:00';
 	let average = 2.5;
-	let customPercent = 4.5;
 	let percentage = 0;
 	let userObs = '';
 	let brandIdOp = 0;
@@ -47,24 +44,11 @@
 
 	$: if (selectedId === 2) {
 		disabled = true;
+		average = 3.1;
 	} else {
 		disabled = false;
+		average = 2.5;
 	}
-
-	/* 	let brandIdOpSel: Opts = {
-		id: 0,
-		label: 'Union Europea 4.5%',
-		code: 'enercopEU',
-		probes: 25,
-		userTotalProbes: 20
-	};
-	type Opts = { id: number; label: string; code: string; probes: number; userTotalProbes: number };
-	let opts: Opts[] = [
-		{ id: 0, label: 'Union Europea 4.5%', code: 'enercopEU', probes: 25, userTotalProbes: 20 },
-		{ id: 1, label: 'SENASA 8%', code: 'enercopArg', probes: 25, userTotalProbes: 20 },
-		{ id: 2, label: 'Piu Gusto 10%', code: 'piugusto', probes: 25, userTotalProbes: 10 }
-	];
-	$: brandIdOp = brandIdOpSel.id; */
 </script>
 
 <div id="formDiv">
@@ -115,12 +99,6 @@
 				</div>
 				<div class="radio-demo">
 					<p>Limite de Hidratación(%)</p>
-					<!-- 					<Select key={(opt) => `${opt ? opt.id : ''}`} bind:value={brandIdOpSel} label="Objects">
-						<Option value={brandIdOpSel} />
-						{#each opts as opt (opt.label)}
-							<Option value={opt}>{opt.label}</Option>
-						{/each}
-					</Select> -->
 					<FormField class="radio">
 						<Radio
 							class="radioChild"
@@ -149,27 +127,6 @@
 						<span class="radioSpan">
 							{options[2].name}{options[2].disabled ? ' (disabled)' : ''}
 						</span>
-						<!-- 				<Radio
-							class="radioChild"
-							bind:group={selected}
-							value={options[2].value}
-							disabled={options[2].disabled}
-						/>
-						<span class="spanLast">
-							<Textfield
-								bind:value={customPercent}
-								label="Otro"
-								label$style="margin-top: 5px; font-size: 14px"
-								suffix="%"
-								input$pattern="\d+"
-								type="number"
-								style="width: 70px;"
-								{disabled}
-							>
-								<HelperText slot="helper">ej. 4.3</HelperText>
-							</Textfield>
-						</span>
-						-->
 					</FormField>
 				</div>
 				<div id="seals">
