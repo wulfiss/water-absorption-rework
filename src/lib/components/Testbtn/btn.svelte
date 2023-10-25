@@ -23,6 +23,7 @@
 	import { swapContent } from '$lib/tools/swapElements';
 	import { timeGenerator } from '$lib/tools/timeGenerator';
 	import { reverseDate } from '$lib/tools/reverseDate';
+	import { variableStore } from '$lib/stores/variableStore';
 
 	export let userProbes: number;
 	export let userAverage: number;
@@ -48,10 +49,15 @@
 		display.set(1);
 		time.set(timeGenerator(timeUser));
 		date.set(reverseDate(userDate));
-		sealsNumber.set(sealGenerator(totalProbes));
-		percentages.set(percentageGenerator(userPercentage, totalFinal));
-		initialWeights.set(initialWeight(averageWeight, totalProbes));
-		averageFinal.set(averageCalculator($percentages, userPercentage));
+		sealsNumber.set(sealGenerator($variableStore[selectedId].userTotalProbes));
+		percentages.set(
+			percentageGenerator(
+				$variableStore[selectedId].percentage,
+				$variableStore[selectedId].userTotalProbes
+			)
+		);
+		initialWeights.set(initialWeight(averageWeight, $variableStore[selectedId].userTotalProbes));
+		averageFinal.set(averageCalculator($percentages, $variableStore[selectedId].percentage));
 		differences.set(difference($initialWeights, $percentages));
 		finalWeights.set(finalWeight($initialWeights, $differences));
 		observation.set(userObs);
