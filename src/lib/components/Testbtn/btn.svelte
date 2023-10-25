@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Form from '../form/form.svelte';
+
 	import Button, { Label } from '@smui/button';
 	import {
 		sealsNumber,
@@ -11,7 +13,8 @@
 		date,
 		observation,
 		display,
-		brandID
+		brandID,
+		numberProbe
 	} from '$lib/stores/store';
 
 	import { averageCalculator } from '$lib/tools/averageCalculator';
@@ -24,6 +27,7 @@
 	import { timeGenerator } from '$lib/tools/timeGenerator';
 	import { reverseDate } from '$lib/tools/reverseDate';
 	import { variableStore } from '$lib/stores/variableStore';
+	import { countSeal } from '$lib/tools/countSeal';
 
 	export let userProbes: number;
 	export let userAverage: number;
@@ -47,6 +51,7 @@
 		selectedId: number
 	) => {
 		display.set(1);
+		numberProbe.set(countSeal());
 		time.set(timeGenerator(timeUser));
 		date.set(reverseDate(userDate));
 		sealsNumber.set(sealGenerator($variableStore[selectedId].userTotalProbes));
