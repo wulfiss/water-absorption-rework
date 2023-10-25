@@ -4,7 +4,8 @@
 		percentages,
 		initialWeights,
 		finalWeights,
-		differences
+		differences,
+		numberProbe
 	} from '$lib/stores/store';
 </script>
 
@@ -18,20 +19,16 @@
 		<div class="cells">% Hidratación</div>
 	</div>
 	<div class="body">
-		{#each $sealsNumber as seal, i}
+		{#each $numberProbe as probe, i}
 			<div id="child{i}" class="child">
 				<div>
-					{#if !$sealsNumber[i]}
-						----
-					{:else}
-						{i + 1}
-					{/if}
+					{i + 1}
 				</div>
 				<div id="sealChild{i}">
 					{#if !$sealsNumber[i]}
 						----
 					{:else}
-						{seal.toFixed()}
+						{$sealsNumber[i].toFixed()}
 					{/if}
 				</div>
 				<div id="initialChild{i}">
