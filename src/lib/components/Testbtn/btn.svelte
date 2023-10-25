@@ -54,14 +54,14 @@
 		numberProbe.set(countSeal());
 		time.set(timeGenerator(timeUser));
 		date.set(reverseDate(userDate));
-		sealsNumber.set(sealGenerator($variableStore[selectedId].userTotalProbes));
+		sealsNumber.set(sealGenerator($variableStore[selectedId].probes));
 		percentages.set(
 			percentageGenerator(
 				$variableStore[selectedId].percentage,
 				$variableStore[selectedId].userTotalProbes
 			)
 		);
-		initialWeights.set(initialWeight(averageWeight, $variableStore[selectedId].userTotalProbes));
+		initialWeights.set(initialWeight(averageWeight, $variableStore[selectedId].probes));
 		averageFinal.set(averageCalculator($percentages, $variableStore[selectedId].percentage));
 		differences.set(difference($initialWeights, $percentages));
 		finalWeights.set(finalWeight($initialWeights, $differences));
