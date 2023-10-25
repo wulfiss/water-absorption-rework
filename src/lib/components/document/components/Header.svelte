@@ -106,13 +106,13 @@
 		border-right: 0;
 
 		img {
-			width: 81.25px;
+			width: 100px;
 			height: 45.35px;
 			padding-top: 3px;
 		}
 
-		:nth-child(3) {
-			font-size: 10px;
+		:nth-child(2) {
+			font-size: 12px;
 		}
 	}
 
