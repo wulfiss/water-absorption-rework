@@ -12,7 +12,7 @@ export const variableStore = readable({
 		percentage: 8
 	},
 	2: {
-		probes: 25,
+		probes: 10,
 		userTotalProbes: 10,
 		percentage: 10
 	}
