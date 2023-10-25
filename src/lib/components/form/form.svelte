@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Btn from '../Testbtn/btn.svelte';
+	import { variables } from '$lib/stores/variableStore';
 
 	import HelperText from '@smui/textfield/helper-text';
 	import Textfield from '@smui/textfield';
@@ -13,14 +14,10 @@
 	let checked = false;
 
 	let disabled = false;
-	let probes = 25;
-	let userTotalProbes = 20;
 	let userDate = '';
 	let timeUser = '09:00';
-	let average = 2.5;
-	let percentage = 0;
+	let averageWeight = 2.5;
 	let userObs = '';
-	let brandIdOp = 0;
 
 	let options = [
 		{
@@ -44,10 +41,10 @@
 
 	$: if (selectedId === 2) {
 		disabled = true;
-		average = 3.1;
+		averageWeight = 3.1;
 	} else {
 		disabled = false;
-		average = 2.5;
+		averageWeight = 2.5;
 	}
 </script>
 
@@ -85,7 +82,7 @@
 						<div>
 							<Textfield
 								class="average"
-								bind:value={average}
+								bind:value={averageWeight}
 								label="Peso promedio"
 								suffix="㎏"
 								input$pattern="\d+"
@@ -146,10 +143,10 @@
 					/>
 				</div>
 				<Btn
-					userProbes={probes}
-					userAverage={average}
-					userTotal={userTotalProbes}
-					userUserPercentage={percentage}
+					maxProbes={$variables[selectedId].maxProbes}
+					{averageWeight}
+					probes={$variables[selectedId].probes}
+					percentage={$variables[selectedId].percentage}
 					swap={checked}
 					{timeUser}
 					{userDate}

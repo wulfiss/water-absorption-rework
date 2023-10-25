@@ -2,18 +2,18 @@ import { type Readable, readable } from 'svelte/store';
 
 export const variables = readable({
 	0: {
-		probes: 25,
-		userProbes: 20,
+		maxProbes: 25,
+		probes: 20,
 		percentage: 4.5
 	},
 	1: {
-		probes: 25,
-		userProbes: 20,
+		maxProbes: 25,
+		probes: 20,
 		percentage: 8
 	},
 	2: {
+		maxProbes: 10,
 		probes: 10,
-		userProbes: 10,
 		percentage: 10
 	}
 });
