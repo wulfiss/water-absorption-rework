@@ -31,7 +31,6 @@
 <div id="mainHeader">
 	<div id="left" class="childs">
 		<img src={imgArr[$brandID].brandLogo} alt="Brand logo" srcset="" />
-		<!-- 		<div>{$textStore[$brandID].brandTitle}</div> -->
 		<div>{$textStore[$brandID].brandSubTitle}</div>
 	</div>
 
