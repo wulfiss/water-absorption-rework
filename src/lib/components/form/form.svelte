@@ -14,7 +14,7 @@
 
 	let checked = false;
 
-	let disabled = true;
+	let disabled = false;
 	let probes = 25;
 	let userTotalProbes = 20;
 	let userDate = '';
@@ -45,15 +45,13 @@
 
 	let selectedId = 0;
 
-	/* 	$: if (selected === 0) {
-		disabled = false;
-		percentage = customPercent;
-	} else {
+	$: if (selectedId === 2) {
 		disabled = true;
-		percentage = selected;
+	} else {
+		disabled = false;
 	}
 
-	let brandIdOpSel: Opts = {
+	/* 	let brandIdOpSel: Opts = {
 		id: 0,
 		label: 'Union Europea 4.5%',
 		code: 'enercopEU',
@@ -176,7 +174,7 @@
 				</div>
 				<div id="seals">
 					<FormField align="end">
-						<Checkbox bind:checked disabled="true" />
+						<Checkbox bind:checked {disabled} />
 						<span slot="label">Agregar precintos perdidos</span>
 					</FormField>
 				</div>
