@@ -4,7 +4,7 @@
 
 <div id="main">
 	<div id="box">
-		<div>Hidratación Promedio</div>
+		<div>Retención Promedio</div>
 		<div>{$averageFinal.toFixed(2)} %</div>
 	</div>
 </div>
