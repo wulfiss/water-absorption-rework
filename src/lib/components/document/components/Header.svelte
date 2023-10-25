@@ -77,8 +77,14 @@
 			display: grid;
 			grid-template-rows: 4px, 4px, 10px;
 
-			div,
 			img {
+				height: 40px;
+				border: 0;
+				margin: auto;
+			}
+
+			div {
+				height: 20px;
 				border: 0;
 				margin: auto;
 			}
@@ -100,14 +106,14 @@
 		display: grid;
 		align-items: center;
 		justify-items: center;
-		padding-bottom: 3px;
+		padding-bottom: 0px;
 		border: $border;
 		border-right: 0;
 
 		img {
-			width: 100px;
-			height: 45.35px;
-			padding-top: 3px;
+			width: 125px;
+			height: 60px;
+			padding-top: 5px;
 		}
 
 		:nth-child(2) {
