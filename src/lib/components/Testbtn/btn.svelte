@@ -32,7 +32,7 @@
 	export let userDate: string;
 	export let timeUser: string;
 	export let userObs: string;
-	export let brandIdOp: number;
+	export let selectedId: number;
 
 	const handleCall = async (
 		totalProbes: number,
@@ -43,7 +43,7 @@
 		timeUser: string,
 		userDate: string,
 		userObs: string,
-		brandIdOp: number
+		selectedId: number
 	) => {
 		display.set(1);
 		time.set(timeGenerator(timeUser));
@@ -55,7 +55,7 @@
 		differences.set(difference($initialWeights, $percentages));
 		finalWeights.set(finalWeight($initialWeights, $differences));
 		observation.set(userObs);
-		brandID.set(brandIdOp);
+		brandID.set(selectedId);
 
 		if (swap) {
 			setTimeout(() => {
@@ -76,7 +76,7 @@
 			timeUser,
 			userDate,
 			userObs,
-			brandIdOp
+			selectedId
 		)}
 	variant="raised"
 >
