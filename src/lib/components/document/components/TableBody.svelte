@@ -16,7 +16,7 @@
 		<div class="cells">Peso Inicial(kg)</div>
 		<div class="cells">Peso Final(kg)</div>
 		<div class="cells">Diferencia(kg)</div>
-		<div class="cells">% Hidratación</div>
+		<div class="cells">% Retención</div>
 	</div>
 	<div class="body">
 		{#each $numberProbe as probe, i}
