@@ -7,7 +7,7 @@ export const textStore = readable({
 		officialName: 'ESTABLECIMIENTO OFICIAL N° 1612',
 		companyName: 'Unión Agricola de Avellaneda',
 		documentTitle: 'Determinación de Retención de Agua',
-		documentCode: 'RH-HIDRA-006',
+		documentCode: 'RG-HIDRA-006',
 		documentValidity: '01/10/21',
 		documentRevision: '04',
 		documentPages: '1 de 1'
@@ -18,7 +18,7 @@ export const textStore = readable({
 		officialName: 'ESTABLECIMIENTO OFICIAL N° 1612',
 		companyName: 'Unión Agricola de Avellaneda',
 		documentTitle: 'Determinación de Retención de Agua',
-		documentCode: 'RH-HIDRA-006',
+		documentCode: 'RG-HIDRA-006',
 		documentValidity: '01/10/21',
 		documentRevision: '04',
 		documentPages: '1 de 1'
@@ -29,7 +29,7 @@ export const textStore = readable({
 		officialName: 'ESTABLECIMIENTO OFICIAL N° 1612',
 		companyName: 'Unión Agricola de Avellaneda',
 		documentTitle: 'Determinación de Retención de Solución de Aditivado',
-		documentCode: 'RH-XXX-XXX',
+		documentCode: 'RG-ADITIVO-009',
 		documentValidity: 'XX/XX/XX',
 		documentRevision: '00',
 		documentPages: '1 de 1'
