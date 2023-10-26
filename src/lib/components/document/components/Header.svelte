@@ -1,37 +1,53 @@
-<script>
+<script lang="ts">
 	import { textStore } from '$lib/stores/textStore';
+	import { brandID } from '$lib/stores/store';
 	import logouaa from '$lib/images/logouaa.jpg';
 	import logoenercop from '$lib/images/logoenercop.jpg';
+	import logoPiugusto from '$lib/images/logoPiugusto.jpg';
 
-	const imgArr = {
+	interface ImgArr {
+		[brandID: number]: {
+			companyLogo: string;
+			brandLogo: string;
+		};
+	}
+
+	const imgArr: ImgArr = {
 		0: {
 			companyLogo: logouaa,
 			brandLogo: logoenercop
+		},
+		1: {
+			companyLogo: logouaa,
+			brandLogo: logoenercop
+		},
+		2: {
+			companyLogo: logouaa,
+			brandLogo: logoPiugusto
 		}
 	};
 </script>
 
 <div id="mainHeader">
 	<div id="left" class="childs">
-		<img src={imgArr[0].brandLogo} alt="Brand logo" srcset="" />
-		<div>{$textStore['enercop'].brandTitle}</div>
-		<div>{$textStore['enercop'].brandSubTitle}</div>
+		<img src={imgArr[$brandID].brandLogo} alt="Brand logo" srcset="" />
+		<div>{$textStore[$brandID].brandSubTitle}</div>
 	</div>
 
 	<div id="center">
 		<div id="up">
-			<div>{$textStore['enercop'].officialName}</div>
-			<div>{$textStore['enercop'].companyName}</div>
-			<img src={imgArr[0].companyLogo} alt="company logo" srcset="" />
+			<div>{$textStore[$brandID].officialName}</div>
+			<div>{$textStore[$brandID].companyName}</div>
+			<img src={imgArr[$brandID].companyLogo} alt="company logo" srcset="" />
 		</div>
-		<div id="down">{$textStore['enercop'].documentTitle}</div>
+		<div id="down">{$textStore[$brandID].documentTitle}</div>
 	</div>
 
 	<div id="right" class="childs">
-		<div>{$textStore['enercop'].documentCode}</div>
-		<div>Vigencia: {$textStore['enercop'].documentValidity}</div>
-		<div>Revisión: {$textStore['enercop'].documentRevision}</div>
-		<div>Página {$textStore['enercop'].documentPages}</div>
+		<div>{$textStore[$brandID].documentCode}</div>
+		<div>Vigencia: {$textStore[$brandID].documentValidity}</div>
+		<div>Revisión: {$textStore[$brandID].documentRevision}</div>
+		<div>Página {$textStore[$brandID].documentPages}</div>
 	</div>
 </div>
 
@@ -61,8 +77,14 @@
 			display: grid;
 			grid-template-rows: 4px, 4px, 10px;
 
-			div,
 			img {
+				height: 40px;
+				border: 0;
+				margin: auto;
+			}
+
+			div {
+				height: 20px;
 				border: 0;
 				margin: auto;
 			}
@@ -84,18 +106,18 @@
 		display: grid;
 		align-items: center;
 		justify-items: center;
-		padding-bottom: 3px;
+		padding-bottom: 0px;
 		border: $border;
 		border-right: 0;
 
 		img {
-			width: 81.25px;
-			height: 45.35px;
-			padding-top: 3px;
+			width: 125px;
+			height: 60px;
+			padding-top: 5px;
 		}
 
-		:nth-child(3) {
-			font-size: 10px;
+		:nth-child(2) {
+			font-size: 12px;
 		}
 	}
 

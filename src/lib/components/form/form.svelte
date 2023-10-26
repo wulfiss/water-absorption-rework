@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
 	import Btn from '../Testbtn/btn.svelte';
+	import { variables } from '$lib/stores/variableStore';
 
 	import HelperText from '@smui/textfield/helper-text';
 	import Textfield from '@smui/textfield';
@@ -12,42 +13,38 @@
 
 	let checked = false;
 
-	let disabled = true;
-	let probes = 25;
-	let userTotalProbes = 20;
+	let disabled = false;
 	let userDate = '';
 	let timeUser = '09:00';
-	let average = 2.5;
-	let customPercent = 4.5;
-	let percentage = 0;
+	let averageWeight = 2.5;
 	let userObs = '';
 
 	let options = [
 		{
-			name: 'SENASA (8%)',
-			value: 8,
-			disabled: false
-		},
-		{
 			name: 'Union Europea (4.5%)',
-			value: 4.5,
+			value: 0,
 			disabled: false
 		},
 		{
-			name: 'Otro',
-			value: 0,
+			name: 'SENASA (8%)',
+			value: 1,
+			disabled: false
+		},
+		{
+			name: 'Piu Gusto (10%)',
+			value: 2,
 			disabled: false
 		}
 	];
 
-	let selected = 4.5;
+	let selectedId = 0;
 
-	$: if (selected === 0) {
-		disabled = false;
-		percentage = customPercent;
-	} else {
+	$: if (selectedId === 2) {
 		disabled = true;
-		percentage = selected;
+		averageWeight = 3.1;
+	} else {
+		disabled = false;
+		averageWeight = 2.5;
 	}
 </script>
 
@@ -85,7 +82,7 @@
 						<div>
 							<Textfield
 								class="average"
-								bind:value={average}
+								bind:value={averageWeight}
 								label="Peso promedio"
 								suffix="㎏"
 								input$pattern="\d+"
@@ -102,7 +99,7 @@
 					<FormField class="radio">
 						<Radio
 							class="radioChild"
-							bind:group={selected}
+							bind:group={selectedId}
 							value={options[0].value}
 							disabled={options[0].disabled}
 						/>
@@ -111,7 +108,7 @@
 						</span>
 						<Radio
 							class="radioChild"
-							bind:group={selected}
+							bind:group={selectedId}
 							value={options[1].value}
 							disabled={options[1].disabled}
 						/>
@@ -120,29 +117,18 @@
 						</span>
 						<Radio
 							class="radioChild"
-							bind:group={selected}
+							bind:group={selectedId}
 							value={options[2].value}
 							disabled={options[2].disabled}
 						/>
-						<span class="spanLast">
-							<Textfield
-								bind:value={customPercent}
-								label="Otro"
-								label$style="margin-top: 5px; font-size: 14px"
-								suffix="%"
-								input$pattern="\d+"
-								type="number"
-								style="width: 70px;"
-								{disabled}
-							>
-								<HelperText slot="helper">ej. 4.3</HelperText>
-							</Textfield>
+						<span class="radioSpan">
+							{options[2].name}{options[2].disabled ? ' (disabled)' : ''}
 						</span>
 					</FormField>
 				</div>
 				<div id="seals">
 					<FormField align="end">
-						<Checkbox bind:checked />
+						<Checkbox bind:checked {disabled} />
 						<span slot="label">Agregar precintos perdidos</span>
 					</FormField>
 				</div>
@@ -157,14 +143,15 @@
 					/>
 				</div>
 				<Btn
-					userProbes={probes}
-					userAverage={average}
-					userTotal={userTotalProbes}
-					userUserPercentage={percentage}
+					maxProbes={$variables[selectedId].maxProbes}
+					{averageWeight}
+					probes={$variables[selectedId].probes}
+					percentage={$variables[selectedId].percentage}
 					swap={checked}
 					{timeUser}
 					{userDate}
 					{userObs}
+					{selectedId}
 				/>
 			</div>
 		</Content>
