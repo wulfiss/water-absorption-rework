@@ -30,7 +30,7 @@ export const textStore = readable({
 		companyName: 'Unión Agricola de Avellaneda',
 		documentTitle: 'Determinación de Retención de Solución de Aditivado',
 		documentCode: 'RG-ADITIVO-009',
-		documentValidity: 'XX/XX/XX',
+		documentValidity: '01/03/23',
 		documentRevision: '00',
 		documentPages: '1 de 1'
 	}
