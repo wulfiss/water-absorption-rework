@@ -41,7 +41,7 @@
 
 	$: if (selectedId === 2) {
 		disabled = true;
-		averageWeight = 3.1;
+		averageWeight = 2.8;
 	} else {
 		disabled = false;
 		averageWeight = 2.5;
