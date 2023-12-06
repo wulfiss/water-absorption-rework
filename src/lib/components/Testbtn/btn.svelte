@@ -35,6 +35,8 @@
 	export let timeUser: string;
 	export let userObs: string;
 	export let selectedId: number;
+	export let timeMax: number;
+	export let timeMin: number;
 
 	const handleCall = async (
 		maxProbes: number,
@@ -45,11 +47,13 @@
 		timeUser: string,
 		userDate: string,
 		userObs: string,
-		selectedId: number
+		selectedId: number,
+		timeMax: number,
+		timeMin: number
 	) => {
 		display.set(1);
 		numberProbe.set(countSeal());
-		time.set(timeGenerator(timeUser));
+		time.set(timeGenerator(timeUser, timeMax, timeMin));
 		date.set(reverseDate(userDate));
 		sealsNumber.set(sealGenerator(maxProbes));
 		percentages.set(percentageGenerator(percentage, probes));
@@ -79,7 +83,9 @@
 			timeUser,
 			userDate,
 			userObs,
-			selectedId
+			selectedId,
+			timeMax,
+			timeMin
 		)}
 	variant="raised"
 >
