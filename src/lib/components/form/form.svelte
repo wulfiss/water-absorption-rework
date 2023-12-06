@@ -152,6 +152,8 @@
 					{userDate}
 					{userObs}
 					{selectedId}
+					timeMax={$variables[selectedId].timeMax}
+					timeMin={$variables[selectedId].timeMin}
 				/>
 			</div>
 		</Content>
