@@ -65,7 +65,7 @@
 	@media print {
 		#document {
 			width: 210mm;
-			height: 320mm;
+			height: 297mm;
 			margin: 45px 35px;
 		}
 
