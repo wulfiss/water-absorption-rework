@@ -25,9 +25,12 @@
 </div>
 
 <style lang="scss">
+	
+	$Height: 297mm;
+
 	* {
 		box-sizing: content-box; /* 1 */
-		overflow: visible; /* 2 */
+		overflow: visible; /* 2 */ 
 	}
 
 	div#btn {
@@ -39,18 +42,18 @@
 
 	div#pageComplete {
 		width: 100vw;
-		width: 100dvw;
+
 		height: 1400px;
 		background-color: #ff8a65;
 		display: grid;
 		justify-items: center;
-		align-content: center;
+		align-content: start;
 	}
 
 	#document {
 		font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS';
 		width: 210mm;
-		height: 297mm;
+		height: $Height;
 	}
 
 	#outer {
@@ -65,14 +68,13 @@
 	@media print {
 		#document {
 			width: 210mm;
-			height: 297mm;
-			margin: 45px 35px;
+			height: $Height;
 		}
 
 		#outer,
 		div#pageComplete {
-			display: block;
-			height: auto;
+			align-content: start;
+			height: $Height; 
 		}
 		div#btn {
 			display: none;
