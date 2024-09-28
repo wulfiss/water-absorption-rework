@@ -30,21 +30,17 @@
 
 <div id="mainHeader">
 	<div id="left" class="childs">
-		<img src={imgArr[$brandID].brandLogo} alt="Brand logo" srcset="" />
-		<div>{$textStore[$brandID].brandSubTitle}</div>
+		<img src={imgArr[$brandID].companyLogo} alt="Brand logo" srcset="" />
+		<div>{$textStore[$brandID].officialName}</div>
+		<div class="textCompany">{$textStore[$brandID].companyName}</div>
 	</div>
 
 	<div id="center">
-		<div id="up">
-			<div>{$textStore[$brandID].officialName}</div>
-			<div>{$textStore[$brandID].companyName}</div>
-			<img src={imgArr[$brandID].companyLogo} alt="company logo" srcset="" />
-		</div>
-		<div id="down">{$textStore[$brandID].documentTitle}</div>
+		<div>{$textStore[$brandID].documentTitle}</div>
 	</div>
 
 	<div id="right" class="childs">
-		<div>{$textStore[$brandID].documentCode}</div>
+		<div>Código: {$textStore[$brandID].documentCode}</div>
 		<div>Vigencia: {$textStore[$brandID].documentValidity}</div>
 		<div>Revisión: {$textStore[$brandID].documentRevision}</div>
 		<div>Página {$textStore[$brandID].documentPages}</div>
@@ -53,67 +49,43 @@
 
 <style lang="scss">
 	$border: 1px solid black;
+	
+	div.textCompany{
+		font-size: 10px;
+	}
 
 	div#mainHeader {
 		display: grid;
 		height: 90px;
 		width: 755px;
-		grid-template-columns: repeat(5, 1fr);
+		grid-template-columns: repeat(12, 1fr);
 		font-size: 15px;
 		font-weight: bold;
 	}
 
 	div#center {
-		grid-column-start: 2;
-		grid-column-end: 5;
-		display: grid;
-		grid-template-rows: repeat(4, 1fr);
+		grid-column-start: 4;
+		grid-column-end: 10;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		border: $border;
-
-		#up {
-			grid-row-start: 1;
-			grid-row-end: 4;
-			border: 0;
-			display: grid;
-			grid-template-rows: 4px, 4px, 10px;
-
-			img {
-				height: 40px;
-				border: 0;
-				margin: auto;
-			}
-
-			div {
-				height: 20px;
-				border: 0;
-				margin: auto;
-			}
-		}
-
-		#down {
-			display: grid;
-			justify-content: center;
-			border-top: $border;
-		}
-
-		div#up:nth-child(1),
-		#down {
-			padding-top: 3px;
-		}
 	}
 
 	div#left {
 		display: grid;
+		grid-column-start: 1;
+		grid-column-end: 4;
 		align-items: center;
 		justify-items: center;
-		padding-bottom: 0px;
+		padding-bottom: 4px;
 		border: $border;
 		border-right: 0;
 
 		img {
 			width: 125px;
-			height: 60px;
-			padding-top: 5px;
+			height: 65px;
+			padding-top: 2px;
 		}
 
 		:nth-child(2) {
@@ -123,8 +95,10 @@
 
 	div#right {
 		display: grid;
+		grid-column-start: 10;
+		grid-column-end: 13;
 		grid-template-rows: repeat(4, 1fr);
-		padding: 5px;
+		padding: 5px 5px 5px 8px;
 		align-items: center;
 		border: $border;
 		border-left: 0;
