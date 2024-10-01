@@ -36,7 +36,7 @@
 	</div>
 
 	<div id="center">
-		<div>{$textStore[$brandID].documentTitle}</div>
+		<div class="title">{$textStore[$brandID].documentTitle}</div>
 	</div>
 
 	<div id="right" class="childs">
@@ -48,6 +48,9 @@
 </div>
 
 <style lang="scss">
+	div.title{
+		font-size: 15px;
+	}
 	$border: 1px solid black;
 	
 	div.textCompany{
