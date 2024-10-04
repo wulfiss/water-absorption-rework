@@ -33,7 +33,7 @@
 		{
 			name: 'Piu Gusto (10%)',
 			value: 2,
-			disabled: false
+			disabled: true
 		}
 	];
 
