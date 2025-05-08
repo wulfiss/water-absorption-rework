@@ -7,9 +7,9 @@ export const textStore = readable({
 		officialName: 'ESTABLECIMIENTO N° OFICIAL 1612',
 		companyName: 'Unión Agricola de Avellaneda Coop. Ltda.',
 		documentTitle: 'DETERMINACIÓN DE RETENCIÓN DE AGUA',
-		documentCode: 'RG-HIDRA-006',
-		documentValidity: '30/09/24',
-		documentRevision: '05',
+		documentCode: 'FS-GC-RG-03',
+		documentValidity: '09/05/25',
+		documentRevision: '06',
 		documentPages: '1 de 1'
 	},
 	1: {
@@ -18,9 +18,9 @@ export const textStore = readable({
 		officialName: 'ESTABLECIMIENTO N° OFICIAL 1612',
 		companyName: 'Unión Agricola de Avellaneda Coop. Ltda.',
 		documentTitle: 'DETERMINACIÓN DE RETENCIÓN DE AGUA',
-		documentCode: 'RG-HIDRA-006',
-		documentValidity: '30/09/24',
-		documentRevision: '05',
+		documentCode: 'FS-GC-RG-03',
+		documentValidity: '09/05/25',
+		documentRevision: '06',
 		documentPages: '1 de 1'
 	},
 	2: {
