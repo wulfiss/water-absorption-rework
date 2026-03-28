@@ -54,7 +54,7 @@
 			<TopAppBar variant="static">
 				<Row>
 					<Section>
-						<Title Style="margin-left: 23px">Generador de Registro de Hidratación</Title>
+						<Title style="margin-left: 23px">Generador de Registro de Hidratación</Title>
 					</Section>
 				</Row>
 			</TopAppBar>
@@ -65,7 +65,9 @@
 				<div id="first">
 					<div>
 						<Textfield bind:value={userDate} label="Fecha" type="date" style="width: 131px;">
-							<Icon class="material-icons" slot="leadingIcon">event</Icon>
+							{#snippet leadingIcon()}
+								<Icon class="material-icons">event</Icon>
+							{/snippet}
 						</Textfield>
 					</div>
 					<div>
@@ -75,7 +77,9 @@
 							type="time"
 							style="width: 131px;"
 						>
-							<Icon class="material-icons" slot="leadingIcon">alarm_on</Icon>
+							{#snippet leadingIcon()}
+								<Icon class="material-icons">alarm_on</Icon>
+							{/snippet}
 						</Textfield>
 					</div>
 					<div class="columns margins">
@@ -89,7 +93,9 @@
 								type="number"
 								style="width: 131px;"
 							>
-								<HelperText slot="helper" style="margin-left: 150px;">ej. 2.50</HelperText>
+								{#snippet helper()}
+									<HelperText style="margin-left: 150px;">ej. 2.50</HelperText>
+								{/snippet}
 							</Textfield>
 						</div>
 					</div>
@@ -129,7 +135,9 @@
 				<div id="seals">
 					<FormField align="end">
 						<Checkbox bind:checked {disabled} />
-						<span slot="label">Agregar precintos perdidos</span>
+						{#snippet label()}
+							<span>Agregar precintos perdidos</span>
+						{/snippet}
 					</FormField>
 				</div>
 				<div class="margins">

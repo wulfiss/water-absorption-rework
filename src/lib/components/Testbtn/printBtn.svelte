@@ -6,6 +6,6 @@
 	};
 </script>
 
-<Button on:click={() => handleClick()} variant="raised">
+<Button onclick={() => handleClick()} variant="raised">
 	<Label>Imprimir</Label>
 </Button>

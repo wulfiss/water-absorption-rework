@@ -5,7 +5,9 @@
 
 	const components = [Form, MainLayout];
 
-	$: active = components[$display];
+	let active = $derived(components[$display]);
+
+	const SvelteComponent = $derived(active);
 </script>
 
-<svelte:component this={active} />
+<SvelteComponent />

@@ -1,6 +1,6 @@
 const countSeal = () => {
 	const TOTAL = 25;
-	let arr = [];
+	const arr: number[] = [];
 	for (let i = 0; i < TOTAL; i += 1) {
 		arr.push(i);
 	}
