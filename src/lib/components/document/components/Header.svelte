@@ -48,12 +48,12 @@
 </div>
 
 <style lang="scss">
-	div.title{
+	div.title {
 		font-size: 15px;
 	}
 	$border: 1px solid black;
-	
-	div.textCompany{
+
+	div.textCompany {
 		font-size: 10px;
 	}
 

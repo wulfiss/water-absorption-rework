@@ -26,17 +26,33 @@
 	import { reverseDate } from '$lib/tools/reverseDate';
 	import { countSeal } from '$lib/tools/countSeal';
 
-	export let maxProbes: number;
-	export let averageWeight: number;
-	export let probes: number;
-	export let percentage: number;
-	export let swap: boolean;
-	export let userDate: string;
-	export let timeUser: string;
-	export let userObs: string;
-	export let selectedId: number;
-	export let timeMax: number;
-	export let timeMin: number;
+	interface Props {
+		maxProbes: number;
+		averageWeight: number;
+		probes: number;
+		percentage: number;
+		swap: boolean;
+		userDate: string;
+		timeUser: string;
+		userObs: string;
+		selectedId: number;
+		timeMax: number;
+		timeMin: number;
+	}
+
+	let {
+		maxProbes,
+		averageWeight,
+		probes,
+		percentage,
+		swap,
+		userDate,
+		timeUser,
+		userObs,
+		selectedId,
+		timeMax,
+		timeMin
+	}: Props = $props();
 
 	const handleCall = async (
 		maxProbes: number,
@@ -58,7 +74,10 @@
 		sealsNumber.set(sealGenerator(maxProbes));
 		percentages.set(percentageGenerator(percentage, probes));
 		initialWeights.set(initialWeight(averageWeight, maxProbes));
-		averageFinal.set(averageCalculator($percentages, percentage));
+		const calculatedAverage = averageCalculator($percentages, percentage);
+		if (calculatedAverage !== undefined) {
+			averageFinal.set(calculatedAverage);
+		}
 		differences.set(difference($initialWeights, $percentages));
 		finalWeights.set(finalWeight($initialWeights, $differences));
 		observation.set(userObs);
@@ -73,7 +92,7 @@
 </script>
 
 <Button
-	on:click={() =>
+	onclick={() =>
 		handleCall(
 			maxProbes,
 			averageWeight,

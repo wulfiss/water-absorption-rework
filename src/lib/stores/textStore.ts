@@ -1,7 +1,19 @@
 import { type Readable, readable } from 'svelte/store';
 
-export const textStore = readable({
-	0: {
+interface BrandText {
+	brandTitle: string;
+	brandSubTitle: string;
+	officialName: string;
+	companyName: string;
+	documentTitle: string;
+	documentCode: string;
+	documentValidity: string;
+	documentRevision: string;
+	documentPages: string;
+}
+
+export const textStore: Readable<BrandText[]> = readable([
+	{
 		brandTitle: '',
 		brandSubTitle: 'Planta Procesadora de Aves',
 		officialName: 'ESTABLECIMIENTO N° OFICIAL 1612',
@@ -12,7 +24,7 @@ export const textStore = readable({
 		documentRevision: '06',
 		documentPages: '1 de 1'
 	},
-	1: {
+	{
 		brandTitle: '',
 		brandSubTitle: 'Planta Procesadora de Aves',
 		officialName: 'ESTABLECIMIENTO N° OFICIAL 1612',
@@ -23,7 +35,7 @@ export const textStore = readable({
 		documentRevision: '06',
 		documentPages: '1 de 1'
 	},
-	2: {
+	{
 		brandTitle: '',
 		brandSubTitle: 'Planta Procesadora de Aves',
 		officialName: 'ESTABLECIMIENTO N° OFICIAL 1612',
@@ -34,4 +46,4 @@ export const textStore = readable({
 		documentRevision: '00',
 		documentPages: '1 de 1'
 	}
-});
+]);

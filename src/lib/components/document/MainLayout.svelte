@@ -25,12 +25,11 @@
 </div>
 
 <style lang="scss">
-	
 	$Height: 297mm;
 
 	* {
 		box-sizing: content-box; /* 1 */
-		overflow: visible; /* 2 */ 
+		overflow: visible; /* 2 */
 	}
 
 	div#btn {
@@ -74,7 +73,7 @@
 		#outer,
 		div#pageComplete {
 			align-content: start;
-			height: $Height; 
+			height: $Height;
 		}
 		div#btn {
 			display: none;
